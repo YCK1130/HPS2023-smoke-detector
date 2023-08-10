@@ -12,6 +12,7 @@
     "node-red-contrib-ui-contextmenu": "^2.0.1",
     "node-red-contrib-ui-svg": "^2.3.1",
     "node-red-dashboard": "^3.5.0",
+    "node-red-node-mysql": "^1.0.3",
     "node-red-node-pi-gpio": "^2.0.6",
     "node-red-node-ping": "^0.3.3",
     "node-red-node-random": "^0.4.1",

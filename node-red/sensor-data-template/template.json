@@ -513,72 +513,41 @@
         "height": 1
     },
     {
-        "id": "b80494bdcb98cbee",
-        "type": "ui_button",
-        "z": "9357338e01a30d92",
+        "id": "79a66be2696ab45c",
+        "type": "MySQLdatabase",
         "name": "",
-        "group": "80c78d71fd175fbf",
-        "order": 2,
-        "width": 1,
-        "height": 1,
-        "passthru": false,
-        "label": "臥室",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "bedroom",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 210,
-        "y": 60,
-        "wires": [
-            [
-                "bd19f4282b1404ac"
-            ]
-        ]
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "sensor",
+        "tz": "",
+        "charset": "UTF8"
     },
     {
-        "id": "bd19f4282b1404ac",
-        "type": "ui_ui_control",
-        "z": "9357338e01a30d92",
-        "name": "",
-        "events": "all",
-        "x": 360,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0668f0062590e2ed",
-        "type": "ui_button",
-        "z": "9357338e01a30d92",
-        "name": "",
-        "group": "80c78d71fd175fbf",
-        "order": 3,
-        "width": 1,
-        "height": 1,
-        "passthru": false,
-        "label": "廚房",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "kitchen",
-        "payloadType": "str",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 210,
-        "y": 100,
-        "wires": [
-            [
-                "bd19f4282b1404ac"
-            ]
-        ]
+        "id": "4f6c8a65bb8820c6",
+        "type": "mqtt-broker",
+        "name": "local",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
     },
     {
         "id": "f26a59b.bdf94a8",
@@ -595,7 +564,7 @@
         "resendOnRefresh": false,
         "templateScope": "local",
         "className": "",
-        "x": 840,
+        "x": 480,
         "y": 240,
         "wires": [
             [
@@ -609,7 +578,7 @@
         "z": "9357338e01a30d92",
         "name": "",
         "events": "all",
-        "x": 960,
+        "x": 720,
         "y": 240,
         "wires": [
             []
@@ -630,8 +599,8 @@
         "resendOnRefresh": false,
         "templateScope": "global",
         "className": "",
-        "x": 270,
-        "y": 480,
+        "x": 110,
+        "y": 100,
         "wires": [
             []
         ]
@@ -651,8 +620,8 @@
         "resendOnRefresh": true,
         "templateScope": "global",
         "className": "",
-        "x": 270,
-        "y": 440,
+        "x": 110,
+        "y": 60,
         "wires": [
             []
         ]
@@ -673,7 +642,7 @@
         "wires": [
             [
                 "f26a59b.bdf94a8",
-                "5d9f4fb4dc1b462f"
+                "d2a426bc1f8a90ed"
             ]
         ]
     },
@@ -684,10 +653,10 @@
         "name": "paths type",
         "fsmDefinition": "{\"state\":{\"status\":\"NORMAL\"},\"transitions\":{\"NORMAL\":{\"normal\":\"NORMAL\",\"bedroom\":\"PATH_A\",\"kitchen\":\"PATH_B\",\"livingroom\":\"PATH_C\",\"masterroom\":\"PATH_D\",\"reset\":\"NORMAL\"},\"PATH_A\":{\"normal\":\"PATH_A\",\"bedroom\":\"PATH_A\",\"kitchen\":\"PATH_A\",\"livingroom\":\"PATH_A\",\"masterroom\":\"PATH_A\",\"reset\":\"NORMAL\"},\"PATH_B\":{\"normal\":\"PATH_B\",\"bedroom\":\"PATH_B\",\"kitchen\":\"PATH_B\",\"livingroom\":\"PATH_B\",\"masterroom\":\"PATH_B\",\"reset\":\"NORMAL\"},\"PATH_C\":{\"normal\":\"PATH_C\",\"bedroom\":\"PATH_C\",\"kitchen\":\"PATH_C\",\"livingroom\":\"PATH_C\",\"masterroom\":\"PATH_C\",\"reset\":\"NORMAL\"},\"PATH_D\":{\"normal\":\"PATH_D\",\"bedroom\":\"PATH_D\",\"kitchen\":\"PATH_D\",\"livingroom\":\"PATH_D\",\"masterroom\":\"PATH_D\",\"reset\":\"NORMAL\"}}}",
         "sendInitialState": true,
-        "sendStateWithoutChange": false,
-        "showTransitionErrors": true,
-        "x": 330,
-        "y": 280,
+        "sendStateWithoutChange": true,
+        "showTransitionErrors": false,
+        "x": 370,
+        "y": 640,
         "wires": [
             [
                 "29d9c877afb8317f"
@@ -705,8 +674,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 140,
-        "y": 280,
+        "x": 180,
+        "y": 640,
         "wires": [
             [
                 "b2772c54688b0846"
@@ -724,32 +693,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 490,
-        "y": 280,
+        "x": 530,
+        "y": 640,
         "wires": [
             [
-                "e4fce5fb05254de8",
-                "ec55de35b196061c"
-            ]
-        ]
-    },
-    {
-        "id": "e4fce5fb05254de8",
-        "type": "rbe",
-        "z": "9357338e01a30d92",
-        "name": "",
-        "func": "rbe",
-        "gap": "",
-        "start": "",
-        "inout": "out",
-        "septopics": true,
-        "property": "path",
-        "topi": "topic",
-        "x": 630,
-        "y": 280,
-        "wires": [
-            [
-                "f26a59b.bdf94a8"
+                "ec55de35b196061c",
+                "3e029767408763f5",
+                "2d256c10ef39cfd2"
             ]
         ]
     },
@@ -758,7 +708,7 @@
         "type": "debug",
         "z": "9357338e01a30d92",
         "name": "debug 15",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -766,8 +716,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 320,
+        "x": 700,
+        "y": 600,
         "wires": []
     },
     {
@@ -791,8 +741,8 @@
         "topic": "reset",
         "payload": "",
         "payloadType": "date",
-        "x": 90,
-        "y": 340,
+        "x": 110,
+        "y": 560,
         "wires": [
             [
                 "b2772c54688b0846",
@@ -807,13 +757,240 @@
         "name": "reset",
         "mode": "link",
         "links": [
-            "83c896b0d0c3cfbd",
+            "09bf2fe2757421fd",
+            "11b7216be9bf733f",
             "69c5693719c5afac",
+            "78b13c4581252f09",
+            "838f2d8bc711e907",
+            "83c896b0d0c3cfbd",
             "d6ac4f62ad49c8d6",
-            "838f2d8bc711e907"
+            "ef3bdeb37b590597"
         ],
-        "x": 235,
+        "x": 255,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3429b3a17b44be7e",
+        "type": "mqtt out",
+        "z": "9357338e01a30d92",
+        "name": "notify status(bedroom)",
+        "topic": "status",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "654c532714216822",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "212aac259bb57f62",
+        "type": "ui_ui_control",
+        "z": "9357338e01a30d92",
+        "name": "",
+        "events": "all",
+        "x": 120,
+        "y": 720,
+        "wires": [
+            [
+                "7272c25c0dba8471",
+                "6504c18af04fae4b"
+            ]
+        ]
+    },
+    {
+        "id": "7272c25c0dba8471",
+        "type": "debug",
+        "z": "9357338e01a30d92",
+        "name": "debug 18",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "6504c18af04fae4b",
+        "type": "function",
+        "z": "9357338e01a30d92",
+        "name": "trigger when chage page",
+        "func": "msg.topic = \"normal\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 720,
+        "wires": [
+            [
+                "b2772c54688b0846"
+            ]
+        ]
+    },
+    {
+        "id": "478292a4ebaca8d2",
+        "type": "link in",
+        "z": "9357338e01a30d92",
+        "name": "floor plan display",
+        "links": [
+            "07039cea834378fa",
+            "28f138029255fbe1",
+            "33a0094d6ccb0164",
+            "e862d0dadea0ac5b"
+        ],
+        "x": 35,
+        "y": 640,
+        "wires": [
+            [
+                "5d9f4fb4dc1b462f"
+            ]
+        ]
+    },
+    {
+        "id": "3e029767408763f5",
+        "type": "link out",
+        "z": "9357338e01a30d92",
+        "name": "path out",
+        "mode": "link",
+        "links": [
+            "0ac0f5ca67ba0465"
+        ],
+        "x": 775,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "0ac0f5ca67ba0465",
+        "type": "link in",
+        "z": "9357338e01a30d92",
+        "name": "path",
+        "links": [
+            "3e029767408763f5"
+        ],
+        "x": 195,
+        "y": 280,
+        "wires": [
+            [
+                "f26a59b.bdf94a8"
+            ]
+        ]
+    },
+    {
+        "id": "f3eaf9ba5e651487",
+        "type": "switch",
+        "z": "9357338e01a30d92",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "bedroom",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "kitchen",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
         "y": 340,
+        "wires": [
+            [
+                "3429b3a17b44be7e",
+                "d9af4558d20a359a"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5d0d05e9a2a6b7a3",
+        "type": "rbe",
+        "z": "9357338e01a30d92",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 270,
+        "y": 340,
+        "wires": [
+            [
+                "f3eaf9ba5e651487"
+            ]
+        ]
+    },
+    {
+        "id": "d2a426bc1f8a90ed",
+        "type": "function",
+        "z": "9357338e01a30d92",
+        "name": "change topic",
+        "func": "msg.topic = msg.payload.place;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "5d0d05e9a2a6b7a3"
+            ]
+        ]
+    },
+    {
+        "id": "d9af4558d20a359a",
+        "type": "mqtt out",
+        "z": "9357338e01a30d92",
+        "name": "notify status(kitchen)",
+        "topic": "path",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "654c532714216822",
+        "x": 660,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "2d256c10ef39cfd2",
+        "type": "mqtt out",
+        "z": "9357338e01a30d92",
+        "name": "notify status(kitchen)",
+        "topic": "path",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4f6c8a65bb8820c6",
+        "x": 740,
+        "y": 700,
         "wires": []
     },
     {
@@ -938,7 +1115,7 @@
         "y": 200,
         "wires": [
             [
-                "a79ccc4d0952d01c"
+                "6eae080fe2ef7b04"
             ]
         ]
     },
@@ -947,7 +1124,7 @@
         "type": "debug",
         "z": "e8560f358cae048b",
         "name": "combine",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1078,13 +1255,13 @@
         "name": "link out 1",
         "mode": "link",
         "links": [
-            "be18d055f36a6adf",
-            "c5d9f970a3cd4527",
+            "0d4b89c521373893",
             "5464f337da3258e4",
-            "0d4b89c521373893"
+            "be18d055f36a6adf",
+            "c5d9f970a3cd4527"
         ],
-        "x": 905,
-        "y": 200,
+        "x": 1315,
+        "y": 220,
         "wires": []
     },
     {
@@ -1095,8 +1272,8 @@
         "links": [
             "a79ccc4d0952d01c"
         ],
-        "x": 255,
-        "y": 420,
+        "x": 265,
+        "y": 460,
         "wires": [
             [
                 "c16f0753630f1a4d"
@@ -1114,8 +1291,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 420,
+        "x": 370,
+        "y": 460,
         "wires": [
             [
                 "c853ffe4ebacafb0"
@@ -1137,8 +1314,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 500,
-        "y": 420,
+        "x": 510,
+        "y": 460,
         "wires": [
             [
                 "ede363f70475f87f"
@@ -1157,8 +1334,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 420,
+        "x": 650,
+        "y": 460,
         "wires": []
     },
     {
@@ -1169,8 +1346,8 @@
         "links": [
             "a79ccc4d0952d01c"
         ],
-        "x": 255,
-        "y": 480,
+        "x": 265,
+        "y": 520,
         "wires": [
             [
                 "f07a896dabaaa12d"
@@ -1188,8 +1365,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 480,
+        "x": 360,
+        "y": 520,
         "wires": [
             [
                 "677c5a163af1e20e"
@@ -1208,8 +1385,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 480,
+        "x": 650,
+        "y": 520,
         "wires": []
     },
     {
@@ -1250,8 +1427,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 490,
-        "y": 480,
+        "x": 500,
+        "y": 520,
         "wires": [
             [
                 "4be9ebd6f293c3e4"
@@ -1266,8 +1443,8 @@
         "links": [
             "a79ccc4d0952d01c"
         ],
-        "x": 255,
-        "y": 540,
+        "x": 265,
+        "y": 580,
         "wires": [
             [
                 "e02d327b0b4301f1"
@@ -1285,8 +1462,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 540,
+        "x": 360,
+        "y": 580,
         "wires": [
             [
                 "e512ca87739ddc01"
@@ -1305,8 +1482,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 540,
+        "x": 650,
+        "y": 580,
         "wires": []
     },
     {
@@ -1347,8 +1524,8 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 500,
-        "y": 540,
+        "x": 510,
+        "y": 580,
         "wires": [
             [
                 "b5131ef7b5556fad"
@@ -1384,56 +1561,20 @@
         "links": [
             "a79ccc4d0952d01c"
         ],
-        "x": 255,
-        "y": 600,
+        "x": 265,
+        "y": 640,
         "wires": [
             [
-                "a631e33934a6406c",
                 "2b1ca02fdde12125"
             ]
         ]
-    },
-    {
-        "id": "a631e33934a6406c",
-        "type": "function",
-        "z": "e8560f358cae048b",
-        "name": "check condition",
-        "func": "const {smoke,temperture,CO }= msg.payload;\n\nif (temperture >= 40 || (smoke === 1&&CO>=8)){\n    msg.payload={message:\"Fire\",color:\"red\"};\n} else if (smoke===1) {\n    msg.payload = { message: \"Smoke Detected\", color: \"orange\" };\n}else if (CO >= 8) {\n    msg.payload = { message: \"CO Too High\", color: \"orange\" };\n}else{\n    msg.payload = { message: \"Normal\", color: \"Green\" };\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 600,
-        "wires": [
-            [
-                "df05b67d51fe2b02"
-            ]
-        ]
-    },
-    {
-        "id": "df05b67d51fe2b02",
-        "type": "debug",
-        "z": "e8560f358cae048b",
-        "name": "debug 12",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "85414c586a5d57c9",
         "type": "mqtt in",
         "z": "e8560f358cae048b",
         "name": "",
-        "topic": "/rpi/CO",
+        "topic": "condition",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "654c532714216822",
@@ -1441,7 +1582,7 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 590,
+        "x": 560,
         "y": 100,
         "wires": [
             [
@@ -1465,7 +1606,7 @@
         "y": 160,
         "wires": [
             [
-                "a79ccc4d0952d01c"
+                "6eae080fe2ef7b04"
             ]
         ]
     },
@@ -1476,7 +1617,8 @@
         "name": "bedroom status",
         "mode": "link",
         "links": [
-            "c97ad871543274fa"
+            "c97ad871543274fa",
+            "478292a4ebaca8d2"
         ],
         "x": 655,
         "y": 700,
@@ -1488,8 +1630,8 @@
         "z": "e8560f358cae048b",
         "name": "",
         "fsmDefinition": "{\"state\":{\"status\":\"Normal\",\"data\":{\"x\":5}},\"transitions\":{\"Normal\":{\"temperture\":\"Fire\",\"CO\":\"CO too High\",\"smoke\":\"Smoke Detected\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"test\":\"Fire\",\"normal\":\"Normal\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Fire\":{\"temperture\":\"Fire\",\"CO\":\"Fire\",\"smoke\":\"Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Fire\",\"temperture_CO_smoke\":\"Fire\",\"test\":\"Fire\",\"normal\":\"Fire\",\"expire\":\"Fire\",\"reset\":\"Normal\"},\"CO too High\":{\"temperture\":\"Fire\",\"CO\":\"CO too High\",\"smoke\":\"Potential Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"CO too High\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Smoke Detected\":{\"temperture\":\"Fire\",\"CO\":\"Potential Fire\",\"smoke\":\"Smoke Detected\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"Smoke Detected\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Potential Fire\":{\"temperture\":\"Fire\",\"CO\":\"Potential Fire\",\"smoke\":\"Potential Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"Potential Fire\",\"expire\":\"Normal\",\"reset\":\"Normal\"}}}",
-        "sendInitialState": false,
-        "sendStateWithoutChange": false,
+        "sendInitialState": true,
+        "sendStateWithoutChange": true,
         "showTransitionErrors": true,
         "x": 310,
         "y": 740,
@@ -1505,14 +1647,14 @@
         "type": "function",
         "z": "e8560f358cae048b",
         "name": "check transition to FSM",
-        "func": "const TEMP_ERROR_LIMIT = 40; // in C\nconst CO_ERROR_LIMIT = 15; // in ppm\n\nconst { smoke, temperture, CO } = msg.payload;\nmsg.topic = \"\"\nmsg.data = {smoke, temperture, CO}\nmsg.control = {}\n\nif (temperture >= TEMP_ERROR_LIMIT) {\n    msg.topic += \"temperture\";\n}\nif (CO >= CO_ERROR_LIMIT) {\n    if (msg.topic !== \"\") msg.topic += \"_\";\n    msg.topic += \"CO\";\n}\nif (smoke === 1) {\n    if (msg.topic !== \"\") msg.topic += \"_\";\n    msg.topic += \"smoke\";\n} \nif (msg.topic===\"\"){\n    msg.topic = \"normal\";\n}\nreturn msg;",
+        "func": "const TEMP_ERROR_LIMIT = 35; // in C\nconst CO_ERROR_LIMIT = 15; // in ppm\n\nconst { smoke, temperture, CO } = msg.payload;\nmsg.topic = \"\"\nmsg.data = {smoke, temperture, CO}\nmsg.control = {}\n\nif (temperture >= TEMP_ERROR_LIMIT) {\n    msg.topic += \"temperture\";\n}\nif (CO >= CO_ERROR_LIMIT) {\n    if (msg.topic !== \"\") msg.topic += \"_\";\n    msg.topic += \"CO\";\n}\nif (smoke === 1) {\n    if (msg.topic !== \"\") msg.topic += \"_\";\n    msg.topic += \"smoke\";\n} \nif (msg.topic===\"\"){\n    msg.topic = \"normal\";\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 190,
-        "y": 680,
+        "x": 430,
+        "y": 640,
         "wires": [
             [
                 "814faab247c65d5c",
@@ -1550,8 +1692,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 680,
+        "x": 740,
+        "y": 640,
         "wires": []
     },
     {
@@ -1570,7 +1712,7 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "reset",
         "payload": "",
@@ -1925,7 +2067,8 @@
         "y": 300,
         "wires": [
             [
-                "a79ccc4d0952d01c"
+                "11dfd4aab5d12f98",
+                "6eae080fe2ef7b04"
             ]
         ]
     },
@@ -1937,8 +2080,221 @@
         "links": [
             "1765ee585273167c"
         ],
-        "x": 75,
+        "x": 135,
         "y": 780,
+        "wires": [
+            [
+                "814faab247c65d5c"
+            ]
+        ]
+    },
+    {
+        "id": "62cd0581a72e0e23",
+        "type": "function",
+        "z": "e8560f358cae048b",
+        "name": "reset normal",
+        "func": "msg.payload = { \"smoke\": 0, \"CO\": 8, \"temperture\": 30 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "db9f653c7e7f3e57"
+            ]
+        ]
+    },
+    {
+        "id": "78b13c4581252f09",
+        "type": "link in",
+        "z": "e8560f358cae048b",
+        "name": "reset",
+        "links": [
+            "1765ee585273167c"
+        ],
+        "x": 575,
+        "y": 400,
+        "wires": [
+            [
+                "62cd0581a72e0e23"
+            ]
+        ]
+    },
+    {
+        "id": "11dfd4aab5d12f98",
+        "type": "debug",
+        "z": "e8560f358cae048b",
+        "name": "debug 16",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "715a245219929f02",
+        "type": "mysql",
+        "z": "e8560f358cae048b",
+        "mydb": "79a66be2696ab45c",
+        "name": "",
+        "x": 1470,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6eae080fe2ef7b04",
+        "type": "function",
+        "z": "e8560f358cae048b",
+        "name": "add node information",
+        "func": "msg.payload.place = \"kitchen\";\nmsg.payload.time = Date.now();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1120,
+        "y": 200,
+        "wires": [
+            [
+                "a79ccc4d0952d01c",
+                "7d4bc13172f71ca5"
+            ]
+        ]
+    },
+    {
+        "id": "7d4bc13172f71ca5",
+        "type": "function",
+        "z": "e8560f358cae048b",
+        "name": "insert data ",
+        "func": "msg.topic = \"INSERT INTO sensorData (`Place`, `Time`, `Smoke`, `CO`, `Temperture`) VALUES (:place, :time, :smoke, :CO, :temperture);\"\nreturn msg;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1310,
+        "y": 320,
+        "wires": [
+            [
+                "715a245219929f02"
+            ]
+        ]
+    },
+    {
+        "id": "d6f20b3ea775c1fb",
+        "type": "mysql",
+        "z": "e8560f358cae048b",
+        "mydb": "79a66be2696ab45c",
+        "name": "",
+        "x": 430,
+        "y": 1140,
+        "wires": [
+            [
+                "9d8e5770e3e1dc0e"
+            ]
+        ]
+    },
+    {
+        "id": "9d8e5770e3e1dc0e",
+        "type": "debug",
+        "z": "e8560f358cae048b",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "fa9a9af0d613f067",
+        "type": "function",
+        "z": "e8560f358cae048b",
+        "name": "get data",
+        "func": "msg.payload = {\"place\":\"bedroom\"}\nmsg.topic = \"SELECT * from sensorData WHERE Place=:place;\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1140,
+        "wires": [
+            [
+                "d6f20b3ea775c1fb"
+            ]
+        ]
+    },
+    {
+        "id": "5862f7017b605bd3",
+        "type": "inject",
+        "z": "e8560f358cae048b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 1140,
+        "wires": [
+            [
+                "fa9a9af0d613f067"
+            ]
+        ]
+    },
+    {
+        "id": "2a268dc88de4aea2",
+        "type": "ui_ui_control",
+        "z": "e8560f358cae048b",
+        "name": "",
+        "events": "all",
+        "x": 60,
+        "y": 840,
+        "wires": [
+            [
+                "4469255040f9a43a"
+            ]
+        ]
+    },
+    {
+        "id": "4469255040f9a43a",
+        "type": "function",
+        "z": "e8560f358cae048b",
+        "name": "trigger when chage page",
+        "func": "msg.topic = \"normal\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 840,
         "wires": [
             [
                 "814faab247c65d5c"
@@ -2178,7 +2534,7 @@
             "b9d9c26a4f68fa1f"
         ],
         "x": 255,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "8bb8760fa5cc3c15"
@@ -2197,7 +2553,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "a4f29ed266c38702"
@@ -2220,7 +2576,7 @@
         "templateScope": "local",
         "className": "",
         "x": 500,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "0681c20b7ec2f13c"
@@ -2240,7 +2596,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 420,
+        "y": 440,
         "wires": []
     },
     {
@@ -2252,7 +2608,7 @@
             "b9d9c26a4f68fa1f"
         ],
         "x": 255,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "fcd3fb07ec23022a"
@@ -2271,7 +2627,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "6f6a2f835e4303ce"
@@ -2291,7 +2647,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 480,
+        "y": 500,
         "wires": []
     },
     {
@@ -2333,7 +2689,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 490,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "388df52bad9fd02f"
@@ -2349,7 +2705,7 @@
             "b9d9c26a4f68fa1f"
         ],
         "x": 255,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "e4c84f2551ce553a"
@@ -2368,7 +2724,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "d0941d106b652e26"
@@ -2388,7 +2744,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 540,
+        "y": 560,
         "wires": []
     },
     {
@@ -2430,7 +2786,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 500,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "824a622f2545e076"
@@ -2467,48 +2823,12 @@
             "b9d9c26a4f68fa1f"
         ],
         "x": 255,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
-                "18b2c3d92f4c20cd",
                 "6c5486538cb735ef"
             ]
         ]
-    },
-    {
-        "id": "18b2c3d92f4c20cd",
-        "type": "function",
-        "z": "b435fa1f0cb3b040",
-        "name": "check condition",
-        "func": "const {smoke,temperture,CO }= msg.payload;\n\nif (temperture >= 40 || (smoke === 1&&CO>=8)){\n    msg.payload={message:\"Fire\",color:\"red\"};\n} else if (smoke===1) {\n    msg.payload = { message: \"Smoke Detected\", color: \"orange\" };\n}else if (CO >= 8) {\n    msg.payload = { message: \"CO Too High\", color: \"orange\" };\n}else{\n    msg.payload = { message: \"Normal\", color: \"Green\" };\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 600,
-        "wires": [
-            [
-                "2cdb0e7a9888e939"
-            ]
-        ]
-    },
-    {
-        "id": "2cdb0e7a9888e939",
-        "type": "debug",
-        "z": "b435fa1f0cb3b040",
-        "name": "debug 12",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "e03cc1879a05467f",
@@ -2558,7 +2878,8 @@
         "name": "living room status",
         "mode": "link",
         "links": [
-            "c97ad871543274fa"
+            "c97ad871543274fa",
+            "478292a4ebaca8d2"
         ],
         "x": 655,
         "y": 700,
@@ -2570,8 +2891,8 @@
         "z": "b435fa1f0cb3b040",
         "name": "",
         "fsmDefinition": "{\"state\":{\"status\":\"Normal\",\"data\":{\"x\":5}},\"transitions\":{\"Normal\":{\"temperture\":\"Fire\",\"CO\":\"CO too High\",\"smoke\":\"Smoke Detected\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"test\":\"Fire\",\"normal\":\"Normal\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Fire\":{\"temperture\":\"Fire\",\"CO\":\"Fire\",\"smoke\":\"Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Fire\",\"temperture_CO_smoke\":\"Fire\",\"test\":\"Fire\",\"normal\":\"Fire\",\"expire\":\"Fire\",\"reset\":\"Normal\"},\"CO too High\":{\"temperture\":\"Fire\",\"CO\":\"CO too High\",\"smoke\":\"Potential Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"CO too High\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Smoke Detected\":{\"temperture\":\"Fire\",\"CO\":\"Potential Fire\",\"smoke\":\"Smoke Detected\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"Smoke Detected\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Potential Fire\":{\"temperture\":\"Fire\",\"CO\":\"Potential Fire\",\"smoke\":\"Potential Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"Potential Fire\",\"expire\":\"Normal\",\"reset\":\"Normal\"}}}",
-        "sendInitialState": false,
-        "sendStateWithoutChange": false,
+        "sendInitialState": true,
+        "sendStateWithoutChange": true,
         "showTransitionErrors": true,
         "x": 310,
         "y": 740,
@@ -2593,8 +2914,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 190,
-        "y": 680,
+        "x": 470,
+        "y": 620,
         "wires": [
             [
                 "2f635d26fb72cf66",
@@ -2632,8 +2953,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 680,
+        "x": 780,
+        "y": 620,
         "wires": []
     },
     {
@@ -2652,7 +2973,7 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "reset",
         "payload": "",
@@ -3019,8 +3340,76 @@
         "links": [
             "1765ee585273167c"
         ],
-        "x": 95,
+        "x": 135,
         "y": 800,
+        "wires": [
+            [
+                "2f635d26fb72cf66"
+            ]
+        ]
+    },
+    {
+        "id": "ef3bdeb37b590597",
+        "type": "link in",
+        "z": "b435fa1f0cb3b040",
+        "name": "reset",
+        "links": [
+            "1765ee585273167c"
+        ],
+        "x": 595,
+        "y": 400,
+        "wires": [
+            [
+                "fd3fd1ed33c25847"
+            ]
+        ]
+    },
+    {
+        "id": "fd3fd1ed33c25847",
+        "type": "function",
+        "z": "b435fa1f0cb3b040",
+        "name": "reset normal",
+        "func": "msg.payload = { \"smoke\": 0, \"CO\": 8, \"temperture\": 30 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "0de9d9d94ad6d105"
+            ]
+        ]
+    },
+    {
+        "id": "42b91a8d3ef8e505",
+        "type": "ui_ui_control",
+        "z": "b435fa1f0cb3b040",
+        "name": "",
+        "events": "all",
+        "x": 80,
+        "y": 840,
+        "wires": [
+            [
+                "45a8634c99467356"
+            ]
+        ]
+    },
+    {
+        "id": "45a8634c99467356",
+        "type": "function",
+        "z": "b435fa1f0cb3b040",
+        "name": "trigger when chage page",
+        "func": "msg.topic = \"normal\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 840,
         "wires": [
             [
                 "2f635d26fb72cf66"
@@ -3260,7 +3649,7 @@
             "7ae1fc736bc32c28"
         ],
         "x": 255,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "b3d650b6f4060ee5"
@@ -3279,7 +3668,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "3038710bbd21cc41"
@@ -3302,7 +3691,7 @@
         "templateScope": "local",
         "className": "",
         "x": 500,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
                 "d8516630fb53fbea"
@@ -3322,7 +3711,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 420,
+        "y": 440,
         "wires": []
     },
     {
@@ -3334,7 +3723,7 @@
             "7ae1fc736bc32c28"
         ],
         "x": 255,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "79f327def379de20"
@@ -3353,7 +3742,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "4bbfa82a03eb4877"
@@ -3373,7 +3762,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 480,
+        "y": 500,
         "wires": []
     },
     {
@@ -3415,7 +3804,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 490,
-        "y": 480,
+        "y": 500,
         "wires": [
             [
                 "b2603860b7efa5db"
@@ -3431,7 +3820,7 @@
             "7ae1fc736bc32c28"
         ],
         "x": 255,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "15afbac1f82ac29a"
@@ -3450,7 +3839,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "c659c63f092a7934"
@@ -3470,7 +3859,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 540,
+        "y": 560,
         "wires": []
     },
     {
@@ -3512,7 +3901,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 500,
-        "y": 540,
+        "y": 560,
         "wires": [
             [
                 "7028438eb61f3933"
@@ -3549,48 +3938,12 @@
             "7ae1fc736bc32c28"
         ],
         "x": 255,
-        "y": 600,
+        "y": 620,
         "wires": [
             [
-                "309221c2abccf107",
                 "acafd638e3c137a3"
             ]
         ]
-    },
-    {
-        "id": "309221c2abccf107",
-        "type": "function",
-        "z": "92d2ee6e5b09e9e8",
-        "name": "check condition",
-        "func": "const {smoke,temperture,CO }= msg.payload;\n\nif (temperture >= 40 || (smoke === 1&&CO>=8)){\n    msg.payload={message:\"Fire\",color:\"red\"};\n} else if (smoke===1) {\n    msg.payload = { message: \"Smoke Detected\", color: \"orange\" };\n}else if (CO >= 8) {\n    msg.payload = { message: \"CO Too High\", color: \"orange\" };\n}else{\n    msg.payload = { message: \"Normal\", color: \"Green\" };\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 420,
-        "y": 600,
-        "wires": [
-            [
-                "927b194a859b6c3f"
-            ]
-        ]
-    },
-    {
-        "id": "927b194a859b6c3f",
-        "type": "debug",
-        "z": "92d2ee6e5b09e9e8",
-        "name": "debug 12",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 600,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "e38587ba54f98248",
@@ -3640,7 +3993,8 @@
         "name": "bedroom status",
         "mode": "link",
         "links": [
-            "c97ad871543274fa"
+            "c97ad871543274fa",
+            "478292a4ebaca8d2"
         ],
         "x": 655,
         "y": 700,
@@ -3652,8 +4006,8 @@
         "z": "92d2ee6e5b09e9e8",
         "name": "",
         "fsmDefinition": "{\"state\":{\"status\":\"Normal\",\"data\":{\"x\":5}},\"transitions\":{\"Normal\":{\"temperture\":\"Fire\",\"CO\":\"CO too High\",\"smoke\":\"Smoke Detected\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"test\":\"Fire\",\"normal\":\"Normal\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Fire\":{\"temperture\":\"Fire\",\"CO\":\"Fire\",\"smoke\":\"Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Fire\",\"temperture_CO_smoke\":\"Fire\",\"test\":\"Fire\",\"normal\":\"Fire\",\"expire\":\"Fire\",\"reset\":\"Normal\"},\"CO too High\":{\"temperture\":\"Fire\",\"CO\":\"CO too High\",\"smoke\":\"Potential Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"CO too High\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Smoke Detected\":{\"temperture\":\"Fire\",\"CO\":\"Potential Fire\",\"smoke\":\"Smoke Detected\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"Smoke Detected\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Potential Fire\":{\"temperture\":\"Fire\",\"CO\":\"Potential Fire\",\"smoke\":\"Potential Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"Potential Fire\",\"expire\":\"Normal\",\"reset\":\"Normal\"}}}",
-        "sendInitialState": false,
-        "sendStateWithoutChange": false,
+        "sendInitialState": true,
+        "sendStateWithoutChange": true,
         "showTransitionErrors": true,
         "x": 310,
         "y": 740,
@@ -3675,8 +4029,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 190,
-        "y": 680,
+        "x": 470,
+        "y": 620,
         "wires": [
             [
                 "66e55b82adb6b3a1",
@@ -3714,8 +4068,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 680,
+        "x": 720,
+        "y": 620,
         "wires": []
     },
     {
@@ -3734,7 +4088,7 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "reset",
         "payload": "",
@@ -4110,6 +4464,74 @@
         ]
     },
     {
+        "id": "11b7216be9bf733f",
+        "type": "link in",
+        "z": "92d2ee6e5b09e9e8",
+        "name": "reset",
+        "links": [
+            "1765ee585273167c"
+        ],
+        "x": 585,
+        "y": 400,
+        "wires": [
+            [
+                "7dd871c208aab74e"
+            ]
+        ]
+    },
+    {
+        "id": "7dd871c208aab74e",
+        "type": "function",
+        "z": "92d2ee6e5b09e9e8",
+        "name": "reset normal",
+        "func": "msg.payload = { \"smoke\": 0, \"CO\": 8, \"temperture\": 30 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 400,
+        "wires": [
+            [
+                "13f723422dfed87f"
+            ]
+        ]
+    },
+    {
+        "id": "05166cbe3800c239",
+        "type": "ui_ui_control",
+        "z": "92d2ee6e5b09e9e8",
+        "name": "",
+        "events": "all",
+        "x": 60,
+        "y": 860,
+        "wires": [
+            [
+                "754693484dbb3241"
+            ]
+        ]
+    },
+    {
+        "id": "754693484dbb3241",
+        "type": "function",
+        "z": "92d2ee6e5b09e9e8",
+        "name": "trigger when chage page",
+        "func": "msg.topic = \"normal\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 860,
+        "wires": [
+            [
+                "66e55b82adb6b3a1"
+            ]
+        ]
+    },
+    {
         "id": "3234f3ae83c3cacf",
         "type": "random",
         "z": "5d81d50e014fd538",
@@ -4342,7 +4764,7 @@
             "8bb1f3c98c9cf7b5"
         ],
         "x": 255,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "6f855d0e7b4856f6"
@@ -4361,7 +4783,7 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "151dc2ed8b35453e"
@@ -4384,7 +4806,7 @@
         "templateScope": "local",
         "className": "",
         "x": 500,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "3a528938f6ccd11c"
@@ -4404,7 +4826,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 420,
+        "y": 480,
         "wires": []
     },
     {
@@ -4416,7 +4838,7 @@
             "8bb1f3c98c9cf7b5"
         ],
         "x": 255,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "13fe047bf111013c"
@@ -4435,7 +4857,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "07487cf546cb84f5"
@@ -4455,7 +4877,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 480,
+        "y": 540,
         "wires": []
     },
     {
@@ -4497,7 +4919,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 490,
-        "y": 480,
+        "y": 540,
         "wires": [
             [
                 "a39d6d71329df9c6"
@@ -4513,7 +4935,7 @@
             "8bb1f3c98c9cf7b5"
         ],
         "x": 255,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "e74cd7d63c3bf415"
@@ -4532,7 +4954,7 @@
         "finalize": "",
         "libs": [],
         "x": 350,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "fdb2fa0036b2567c"
@@ -4552,7 +4974,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 540,
+        "y": 600,
         "wires": []
     },
     {
@@ -4594,7 +5016,7 @@
         "useDifferentColor": false,
         "className": "",
         "x": 500,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "a0b6178a7d912927"
@@ -4631,7 +5053,7 @@
             "8bb1f3c98c9cf7b5"
         ],
         "x": 255,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "ce5e7ec222ce37c4"
@@ -4686,7 +5108,8 @@
         "name": "master room status",
         "mode": "link",
         "links": [
-            "c97ad871543274fa"
+            "c97ad871543274fa",
+            "478292a4ebaca8d2"
         ],
         "x": 655,
         "y": 700,
@@ -4698,8 +5121,8 @@
         "z": "5d81d50e014fd538",
         "name": "",
         "fsmDefinition": "{\"state\":{\"status\":\"Normal\",\"data\":{\"x\":5}},\"transitions\":{\"Normal\":{\"temperture\":\"Fire\",\"CO\":\"CO too High\",\"smoke\":\"Smoke Detected\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"test\":\"Fire\",\"normal\":\"Normal\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Fire\":{\"temperture\":\"Fire\",\"CO\":\"Fire\",\"smoke\":\"Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Fire\",\"temperture_CO_smoke\":\"Fire\",\"test\":\"Fire\",\"normal\":\"Fire\",\"expire\":\"Fire\",\"reset\":\"Normal\"},\"CO too High\":{\"temperture\":\"Fire\",\"CO\":\"CO too High\",\"smoke\":\"Potential Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"CO too High\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Smoke Detected\":{\"temperture\":\"Fire\",\"CO\":\"Potential Fire\",\"smoke\":\"Smoke Detected\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"Smoke Detected\",\"expire\":\"Normal\",\"reset\":\"Normal\"},\"Potential Fire\":{\"temperture\":\"Fire\",\"CO\":\"Potential Fire\",\"smoke\":\"Potential Fire\",\"temperture_CO\":\"Fire\",\"temperture_smoke\":\"Fire\",\"CO_smoke\":\"Potential Fire\",\"temperture_CO_smoke\":\"Fire\",\"normal\":\"Potential Fire\",\"expire\":\"Normal\",\"reset\":\"Normal\"}}}",
-        "sendInitialState": false,
-        "sendStateWithoutChange": false,
+        "sendInitialState": true,
+        "sendStateWithoutChange": true,
         "showTransitionErrors": true,
         "x": 310,
         "y": 740,
@@ -4722,7 +5145,7 @@
         "finalize": "",
         "libs": [],
         "x": 470,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "e2ca030976587723",
@@ -4760,8 +5183,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
-        "y": 600,
+        "x": 740,
+        "y": 660,
         "wires": []
     },
     {
@@ -4780,7 +5203,7 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "reset",
         "payload": "",
@@ -5148,6 +5571,74 @@
         ],
         "x": 85,
         "y": 800,
+        "wires": [
+            [
+                "e2ca030976587723"
+            ]
+        ]
+    },
+    {
+        "id": "09bf2fe2757421fd",
+        "type": "link in",
+        "z": "5d81d50e014fd538",
+        "name": "reset",
+        "links": [
+            "1765ee585273167c"
+        ],
+        "x": 575,
+        "y": 400,
+        "wires": [
+            [
+                "87508b85f1b19074"
+            ]
+        ]
+    },
+    {
+        "id": "87508b85f1b19074",
+        "type": "function",
+        "z": "5d81d50e014fd538",
+        "name": "reset normal",
+        "func": "msg.payload = { \"smoke\": 0, \"CO\": 8, \"temperture\": 30 }\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 400,
+        "wires": [
+            [
+                "1bcefb649c0c7372"
+            ]
+        ]
+    },
+    {
+        "id": "d183aef200a3e33a",
+        "type": "ui_ui_control",
+        "z": "5d81d50e014fd538",
+        "name": "",
+        "events": "all",
+        "x": 60,
+        "y": 840,
+        "wires": [
+            [
+                "4f222b7ac59e9d0f"
+            ]
+        ]
+    },
+    {
+        "id": "4f222b7ac59e9d0f",
+        "type": "function",
+        "z": "5d81d50e014fd538",
+        "name": "trigger when chage page",
+        "func": "msg.topic = \"normal\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 840,
         "wires": [
             [
                 "e2ca030976587723"
