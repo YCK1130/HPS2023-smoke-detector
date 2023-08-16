@@ -11,7 +11,7 @@ import neopixel
 import uuid 
 
 # mqtt configuration
-MQTT_SERVER = "rpi3"  
+MQTT_SERVER = "raspberrypi.local"  
 MQTT_PORT = 1883  
 MQTT_ALIVE = 60  
 MQTT_TOPIC = "/rpi/led_config"
@@ -19,14 +19,27 @@ MQTT_DEVICE_NAME = "/rpi/"
 
 # LED stripe configuration
 pixel_pin = board.D10
+pixel_pin2 = board.D13
 num_pixels = 6
+num_pixels2 = 6
 ORDER = neopixel.GRB
+PLACE="livingroom"
+COLOR={
+    "red":(255,0,0),
+    "green":(0,255,0),
+    "white":(255,255,255),
+    "orange":(255,165,0),
+    "none":(0,0,0)
+}
 
 # initialize
 pixels = neopixel.NeoPixel(
     pixel_pin, num_pixels, brightness=0.1, auto_write=False, pixel_order=ORDER
 )
 
+pixels2 = neopixel.NeoPixel(
+    pixel_pin2, num_pixels2, brightness=0.1, auto_write=False, pixel_order=ORDER
+)
 file_name = "uuid.txt"
 try:
     # Try to open the file for reading
@@ -40,29 +53,53 @@ except FileNotFoundError:
         device_id = uuid.uuid1()
         print(device_id)
         file.write(str(device_id))
-    print(f"File '{file_name}' didn't exist and has been created.")
+        print(f"File '{file_name}' didn't exist and has been created.")
 
 def led_control(num):
-    for i in range(num_pixels):
-        if (i <= int(num * num_pixels) + 1 and i >= int(num_pixels * num_pixels) - 1):
-            pixels[i] = (0, 255, 0)
-        else: 
-            pixels[i] = (0, 0, 0)
+    num=float(num/360)
+    print(num)
+    pos=int(num*num_pixels)
+    led_length_run=6
+    led_length=2
+    pixels.fill(COLOR["none"])
+    for i in range(led_length):
+        pixels[pos+i]=COLOR["green"]
+        pixels[pos-i]=COLOR["green"]
+    pixels.show()
+    
+    for i in range(led_length_run):
+        pixels[pos+led_length-i]=COLOR["green"]
+        pixels[pos-led_length+i]=COLOR["green"]
+        pixels[pos+led_length-i+1]=COLOR["none"]
+        pixels[pos-led_length+i-1]=COLOR["none"]
+        pixels.show()
+        time.sleep(0.1)
+
+    pixels.fill(COLOR["none"])
+    for i in range(led_length):
+        pixels[pos+i]=COLOR["green"]
+        pixels[pos-i]=COLOR["green"]
     pixels.show()
 
+        
+
+def led_situation(sit):
+    pixels2.fill(COLOR[sit])
+    pixels2.show()
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
     client.subscribe(MQTT_TOPIC)
+    client.subscribe("status")
+    client.subscribe("path")
 
 def on_message(client, userdata, msg):
-    print(f"{msg.topic}: {msg.payload.decode('utf-8')}")
-    if (msg.topic == "/rpi/led_config"):
+    if (msg.topic == "path"):
         data = json.loads(msg.payload)
-        if (data['device_id'] == device_id):
-            led_control(float(data['degree']))
-    else: 
-        print(msg.topic)
+        led_control(float(data[PLACE]))
+    elif(msg.topic ==f"/{PLACE}/status"): 
+        data = json.loads(msg.payload)
+        led_situation(data["color"])
     #print(f"{msg.topic} - data1: {json.loads(msg.payload)['data1']}, data2: {json.loads(msg.payload)['data2']}")
 
 
@@ -89,7 +126,7 @@ def Send_alarm(channel):
             'device_id' : str(device_id),
             'somke_detected' : True
     }
-    mqtt_client.publish("/rpi/smoke_sensor", json.dumps(payload), qos=1)
+    #mqtt_client.publish("/rpi/smoke_sensor", json.dumps(payload), qos=1)
     mqtt_client.loop(2,10)
     print("send_alarm")
 
@@ -113,11 +150,16 @@ mqtt_client.connect(MQTT_SERVER, MQTT_PORT, MQTT_ALIVE)
 
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(26, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(26, GPIO.FALLING,
-callback=Send_alarm, bouncetime=100)
+GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.add_event_detect(13, GPIO.FALLING,callback=Send_alarm, bouncetime=100)
 
 no = 1
+
+payload = {
+    'device_id' : "degree",
+}
+# register device
+mqtt_client.publish("/rpi/device_reg", json.dumps(payload), qos=2)
 while True: 
     # Chose ADS1115 A0 pin for Output
     ADS_out = AnalogIn(ads, ADS.P0)
@@ -125,15 +167,15 @@ while True:
     Cel_temperature = Cal_temperature(bus)
 
     # Output CO ppm
-    print("CO ppm is {:}".format(Co_ppm))   
+    #print("CO ppm is {:}".format(Co_ppm))   
     # Output Celsius Temperature
-    print("Celsius Temperature: {:} °C".format(Cel_temperature))
+    #print("Celsius Temperature: {:} °C".format(Cel_temperature))
     payload = { 
     'ppm': Co_ppm,
     'temp': Cel_temperature 
     }
-    print(f"payload: {payload}")
-    mqtt_client.publish("rpi/condition", json.dumps(payload), qos=1)
+    #print(f"payload: {payload}")
+    mqtt_client.publish(f"/{PLACE}/condition", json.dumps(payload), qos=1)
     mqtt_client.loop(2,10)
     no = no + 1
     time.sleep(1)
