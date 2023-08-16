@@ -58,3 +58,10 @@ https://flows.nodered.org/node/node-red-contrib-image-tools
 npm install node-red-contrib-line-notify
 ```
 https://flows.nodered.org/node/node-red-contrib-line-notify
+
+### database
+
+```sh
+npm install node-red-node-mysql
+```
+https://flows.nodered.org/node/node-red-node-mysql

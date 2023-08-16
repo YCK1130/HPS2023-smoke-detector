@@ -1,0 +1,16 @@
+{
+    "/{PLACE}/condition": {
+        "ppm": "float",
+        "temp": "float",
+        "smoke": "bool",
+        "battery": "bool"
+    },
+    "/{PLACE}/status": {
+        "place": "string",
+        "message": "string",
+        "color": "green | orange | red"
+    },
+    "path": {
+        "{place}": "int"
+    }
+}
