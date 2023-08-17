@@ -1,9 +1,9 @@
 {
     "/{PLACE}/condition": {
-        "ppm": "float",
-        "temp": "float",
-        "smoke": "bool",
-        "battery": "bool"
+        "ppm": "float(CO ppm)",
+        "temp": "float(deg C)",
+        "smoke": "bool(T/F)",
+        "battery": "bool(T/F)"
     },
     "/{PLACE}/status": {
         "place": "string",
