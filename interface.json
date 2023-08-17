@@ -11,6 +11,8 @@
         "color": "green | orange | red"
     },
     "path": {
-        "{place}": "int"
+        "{place1}": "int(deg)",
+        "{place2}": "int(deg)",
+        "{place3}": "int(deg)"
     }
 }
