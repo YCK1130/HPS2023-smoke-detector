@@ -11,7 +11,7 @@ import neopixel
 import uuid 
 
 # mqtt configuration
-MQTT_SERVER = "raspberrypi.local"  
+MQTT_SERVER = "yckRPi"  
 MQTT_PORT = 1883  
 MQTT_ALIVE = 60  
 MQTT_TOPIC = "/rpi/led_config"
