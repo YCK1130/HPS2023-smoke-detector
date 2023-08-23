@@ -18,7 +18,7 @@ LOG = False
 INF = 1e5
 # Opening JSON file
 f = open('./node-red/sensor-data-template/nodes.json')
- 
+
 # returns JSON object as a dictionary
 data = json.load(f)
 adjacentList = data["connection"]
@@ -88,7 +88,6 @@ class Graph:
                     if LOG:
                         print("del:",adj_1,neighbor)
                     del self.adjacency_list[adj_1][idx]
-                    break
             for j in range(i+1,len(neighbors)):
                 adj_2,_ = neighbors[j]
                 for idx,x in enumerate(self.get_neighbors(adj_1)):
@@ -97,14 +96,12 @@ class Graph:
                         if LOG:
                             print("del:",adj_1,neighbor)
                         del self.adjacency_list[adj_1][idx]
-                        break
                 for idx,x in enumerate(self.get_neighbors(adj_2)):
                     neighbor,weight = x
                     if neighbor==adj_1:
                         if LOG:
                             print("del:",adj_2,neighbor)
                         del self.adjacency_list[adj_2][idx]
-                        break
         adj_last,_=neighbors[-1]
         for idx,x in enumerate(self.get_neighbors(adj_last)):
             neighbor,weight = x
@@ -112,9 +109,8 @@ class Graph:
                 if LOG:
                     print("del:",adj_last,neighbor)
                 del self.adjacency_list[adj_last][idx]
-                break
 
-        self.adjacency_list[place]=[]                
+        self.adjacency_list[place]=[]
 
     def a_star_algorithm(self, start_node, stop_node):
         # open_list is a list of nodes which have been visited, but who's neighbors
@@ -162,7 +158,7 @@ class Graph:
 
                 if LOG:
                     print('Path found: {}'.format(reconst_path))
-                
+
                 total_dist = 0
                 node = reconst_path[0]
                 next = 1
@@ -218,7 +214,7 @@ def cal_deg(node ,next_node,node_data):
 
     if vy < 0:
         deg = 2*math.pi - deg
-    
+
     if deg < 0:
         deg = (deg + 2*math.pi)
     if deg > 2*math.pi:
@@ -264,6 +260,8 @@ try:
     f = open('./node-red/data/fire.txt','r')
 
     for place in f:
+        place = place[:-1]
+        print(place+" ,",file=sys.stderr)
         try:
             map_graph_to_E1.fire(place)
             map_graph_to_E2.fire(place)
@@ -298,4 +296,4 @@ if LOG:
 escape_deg = {}
 for node in detectors:
     escape_deg[node] = cal_deg(node,escape_next[node],node_data)
-print(escape_deg)
+print(escape_deg,end="")
