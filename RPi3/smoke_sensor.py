@@ -11,7 +11,7 @@ import neopixel
 import uuid 
 
 # mqtt configuration
-MQTT_SERVER = "yckRPi"  
+MQTT_SERVER = "yckRPi.local"  
 MQTT_PORT = 1883  
 MQTT_ALIVE = 60  
 MQTT_TOPIC = "/rpi/led_config"
@@ -19,11 +19,9 @@ MQTT_DEVICE_NAME = "/rpi/"
 
 # LED stripe configuration
 pixel_pin = board.D10
-pixel_pin2 = board.D13
-num_pixels = 6
-num_pixels2 = 6
+num_pixels = 60
 ORDER = neopixel.GRB
-PLACE="livingroom"
+PLACE="bedroom"
 COLOR={
     "red":(255,0,0),
     "green":(0,255,0),
@@ -31,15 +29,13 @@ COLOR={
     "orange":(255,165,0),
     "none":(0,0,0)
 }
-
+show_path=False
+path_pos=0;
 # initialize
 pixels = neopixel.NeoPixel(
     pixel_pin, num_pixels, brightness=0.1, auto_write=False, pixel_order=ORDER
 )
 
-pixels2 = neopixel.NeoPixel(
-    pixel_pin2, num_pixels2, brightness=0.1, auto_write=False, pixel_order=ORDER
-)
 file_name = "uuid.txt"
 try:
     # Try to open the file for reading
@@ -57,49 +53,61 @@ except FileNotFoundError:
 
 def led_control(num):
     num=float(num/360)
-    print(num)
+    #print(num)
     pos=int(num*num_pixels)
     led_length_run=6
     led_length=2
-    pixels.fill(COLOR["none"])
+    for i in range(30):
+        pixels[i]=(COLOR["none"])
     for i in range(led_length):
-        pixels[pos+i]=COLOR["green"]
-        pixels[pos-i]=COLOR["green"]
+        pixels[(pos+i)%30]=COLOR["green"]
+        pixels[(pos-i)%30]=COLOR["green"]
     pixels.show()
     
     for i in range(led_length_run):
-        pixels[pos+led_length-i]=COLOR["green"]
-        pixels[pos-led_length+i]=COLOR["green"]
-        pixels[pos+led_length-i+1]=COLOR["none"]
-        pixels[pos-led_length+i-1]=COLOR["none"]
-        pixels.show()
+        pixels[(pos+led_length_run-i)%30]=COLOR["green"]
+        pixels[(pos-led_length_run+i)%30]=COLOR["green"]
+        pixels[(pos+led_length_run-i+1)%30]=COLOR["none"]
+        pixels[(pos-led_length_run+i-1)%30]=COLOR["none"]
         time.sleep(0.1)
-
-    pixels.fill(COLOR["none"])
+        pixels.show()
+    for i in range(30):
+        pixels[i]=(COLOR["none"])
     for i in range(led_length):
-        pixels[pos+i]=COLOR["green"]
-        pixels[pos-i]=COLOR["green"]
+        pixels[(pos+i)%30]=COLOR["green"]
+        pixels[(pos-i)%30]=COLOR["green"]
     pixels.show()
 
         
 
 def led_situation(sit):
-    pixels2.fill(COLOR[sit])
-    pixels2.show()
+    for i in range(30):
+        pixels[i+30]=COLOR[sit]
+    pixels.show()
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
     client.subscribe(MQTT_TOPIC)
-    client.subscribe("status")
+    client.subscribe(f"/{PLACE}/status")
     client.subscribe("path")
 
 def on_message(client, userdata, msg):
+    #print(msg.topic)
+    #print(msg.payload)
+    global show_path
+    global path_pos
     if (msg.topic == "path"):
         data = json.loads(msg.payload)
+        path_pos=float(data[PLACE])
         led_control(float(data[PLACE]))
     elif(msg.topic ==f"/{PLACE}/status"): 
         data = json.loads(msg.payload)
         led_situation(data["color"])
+        if(data["color"]!="none"):
+            #print("hi")
+            show_path=True
+        else:
+            show_path=False
     #print(f"{msg.topic} - data1: {json.loads(msg.payload)['data1']}, data2: {json.loads(msg.payload)['data2']}")
 
 
@@ -159,13 +167,16 @@ payload = {
     'device_id' : "degree",
 }
 # register device
-mqtt_client.publish("/rpi/device_reg", json.dumps(payload), qos=2)
+#mqtt_client.publish("/rpi/device_reg", json.dumps(payload), qos=2)
 while True: 
     # Chose ADS1115 A0 pin for Output
     ADS_out = AnalogIn(ads, ADS.P0)
     Co_ppm = Cal_CO_ppm(ADS_out)
     Cel_temperature = Cal_temperature(bus)
-
+    #print(show_path)
+    if show_path:
+        #print("hihihi")
+        led_control(path_pos)
     # Output CO ppm
     #print("CO ppm is {:}".format(Co_ppm))   
     # Output Celsius Temperature
