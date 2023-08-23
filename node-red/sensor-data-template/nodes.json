@@ -1,0 +1,130 @@
+{
+    "smoke_detector": [
+        {
+            "place": "bedroom",
+            "top": 263,
+            "left": 169,
+            "status": "Normal"
+        },
+        {
+            "place": "kitchen",
+            "top": 60,
+            "left": 610,
+            "status": "Normal"
+        },
+        {
+            "place": "BedroomC",
+            "top": 344,
+            "left": 365,
+            "status": "Normal"
+        },
+        {
+            "place": "meetingroom",
+            "top": 253,
+            "left": 615,
+            "status": "Normal"
+        },
+        {
+            "place": "BedroomB",
+            "top": 197,
+            "left": 767,
+            "status": "Normal"
+        },
+        {
+            "place": "entryA",
+            "top": 163,
+            "left": 71,
+            "status": "Normal"
+        },
+        {
+            "place": "entryB",
+            "top": 345,
+            "left": 720,
+            "status": "Normal"
+        },
+        {
+            "place": "aisleA",
+            "top": 156,
+            "left": 263,
+            "status": "Normal"
+        },
+        {
+            "place": "aisleB",
+            "top": 156,
+            "left": 593,
+            "status": "Normal"
+        },
+        {
+            "place": "aisleC",
+            "top": 325,
+            "left": 484,
+            "status": "Normal"
+        },
+        {
+            "place": "intersection",
+            "top": 156,
+            "left": 479,
+            "status": "Normal"
+        },
+        {
+            "place": "studyroom",
+            "top": 235,
+            "left": 335,
+            "status": "Normal"
+        },
+        {
+            "place": "meetingroom",
+            "top": 253,
+            "left": 615,
+            "status": "Normal"
+        }
+    ],
+    "door": [
+        { "place": "D1", "top": 170, "left": 105 },
+        { "place": "D2", "top": 223, "left": 172 },
+        { "place": "D3", "top": 372, "left": 243 },
+        { "place": "D4", "top": 372, "left": 312 },
+        { "place": "D5", "top": 224, "left": 335 },
+        { "place": "D6", "top": 372, "left": 430 },
+        { "place": "D7", "top": 118, "left": 554 },
+        { "place": "D8", "top": 372, "left": 570 },
+        { "place": "D9", "top": 224, "left": 607 },
+        { "place": "D10", "top": 117, "left": 679 },
+        { "place": "D11", "top": 318, "left": 686 },
+        { "place": "D12", "top": 171, "left": 708 },
+        { "place": "D13", "top": 114, "left": 770 }
+    ],
+    "entry": [
+        { "place": "E1", "top": 170, "left": 27 },
+        { "place": "E2", "top": 363, "left": 829 }
+    ],
+    "connection": {
+        "E1": ["entryA", "D1"],
+        "entryA": ["E1", "D1"],
+        "D1": ["E1", "entryA", "aisleA", "D2", "D5"],
+        "bedroom": ["D2", "D3"],
+        "D2": ["D1", "D3", "aisleA", "bedroom"],
+        "D3": ["D2", "D4", "bedroom"],
+        "D4": ["D3", "D6", "BedroomC"],
+        "aisleA": ["D1", "D2", "D5", "intersection"],
+        "D5": ["D1", "studyroom", "intersection", "aisleA"],
+        "studyroom": ["D5"],
+        "BedroomC": ["D4", "D6"],
+        "D6": ["D4", "BedroomC", "aisleC", "D8"],
+        "aisleC": ["intersection", "D6", "D8"],
+        "intersection": ["D5", "D7", "aisleA", "aisleB", "aisleC"],
+        "D7": ["intersection", "D9", "D12", "aisleB", "kitchen"],
+        "D8": ["D6", "D11", "aisleC", "entryB", "E2"],
+        "aisleB": ["D9", "D7", "D10", "D12", "intersection"],
+        "D9": ["D7", "D10", "D11", "D12", "aisleB", "meetingroom", "D11"],
+        "D10": ["D9", "D12", "aisleB", "kitchen"],
+        "kitchen": ["D7", "D10"],
+        "meetingroom": ["D9", "D11"],
+        "D11": ["D8", "D9", "meetingroom", "entryB", "E2"],
+        "D12": ["D7", "D9", "D10", "aisleB", "BedroomB", "D13"],
+        "D13": ["D12", "BedroomB"],
+        "BedroomB": ["D12", "D13"],
+        "entryB": ["D8", "D11", "E2"],
+        "E2": ["D8", "D11", "entryB"]
+    }
+}
