@@ -1,9 +1,9 @@
 {
     "/{PLACE}/condition": {
-        "ppm": "float",
-        "temp": "float",
-        "smoke": "bool",
-        "battery": "bool"
+        "ppm": "float(CO ppm)",
+        "temp": "float(deg C)",
+        "smoke": "bool(T/F)",
+        "battery": "bool(T/F)"
     },
     "/{PLACE}/status": {
         "place": "string",
@@ -11,6 +11,8 @@
         "color": "green | orange | red"
     },
     "path": {
-        "{place}": "int"
+        "{place1}": "int(deg)",
+        "{place2}": "int(deg)",
+        "{place3}": "int(deg)"
     }
 }
