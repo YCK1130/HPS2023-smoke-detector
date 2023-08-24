@@ -34,7 +34,7 @@ MQTT_TOPIC = [f"/{PLACE}/status","path"]
 MQTT_DEVICE_NAME = "/rpi/"
 # initialize
 smoke_detected = False
-power_detected = False
+power_detected = True
 pixels = neopixel.NeoPixel(
     pixel_pin, num_pixels, brightness=0.1, auto_write=False, pixel_order=ORDER
 )
@@ -115,15 +115,11 @@ def Cal_CO_ppm(ADS_out):
 
 def smoke(channel):
     global smoke_detected
-    print(channel)
-    smoke_detected = channel
+    smoke_detected = not smoke_detected
 
-def power_on(channel):
+def power(channel):
     global power_detected
-    power_detected = True
-def power_off(channel):
-    global power_detected
-    power_detected = False
+    power_detected = not power_detected
 
 print("Init Sensor...")
 # check U Sensor I2c address
@@ -145,11 +141,10 @@ mqtt_client.connect(MQTT_SERVER, MQTT_PORT, MQTT_ALIVE)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(13, GPIO.FALLING,callback=smoke, bouncetime=100)
+GPIO.add_event_detect(13, GPIO.BOTH,callback=smoke, bouncetime=100)
 
 GPIO.setup(18, GPIO.IN)
-GPIO.add_event_detect(18, GPIO.RISING, callback=power_on, bouncetime=100)
-GPIO.add_event_detect(18, GPIO.FALLING,callback=power_off, bouncetime=100)
+GPIO.add_event_detect(18, GPIO.BOTH, callback=power, bouncetime=100)
 
 def sensor_data(channel:str,qos:int):
     global smoke_detected,power_detected
@@ -172,12 +167,15 @@ def repeat_send(channel:str,qos:int,period:int):
         time.sleep(period)
 
 # send data
-dataThread = threading.Thread(target = sensor_data)
+dataThread = threading.Thread(target = repeat_send ,args=(f"/{PLACE}/condition",1,1))
 dataThread.start()
 
 while True:
     if show_path:
         led_control(path_pos)
-
+    if GPIO.input(18):
+        led_situation("white")
+    else:
+        led_situation("none")
 # Close bus use I2C
 bus.close()

@@ -589,7 +589,7 @@
         "order": 1,
         "width": 16,
         "height": 9,
-        "format": "<img id=\"imgmap\" style=\"position: absolute; top: 0px; left: 0px;\" src=\"/floor_img.jpg\" draggable=\"false\">\n\n<div id=\"dot_bedroom\" style=\"top: 263px; left: 169px;\" class=\"mydot\" ></div>\n<img id=\"arrow_bedroom\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_kitchen\" style=\" top: 60px; left: 610px;\" class=\"mydot\"></div>\n<img id=\"arrow_kitchen\" class=\"myArrow\"  src=\"/arrow.png\">\n\n<div id=\"dot_BedroomC\"\n    style=\" top: 344px; left: 365px;\" class=\"mydot\"></div>\n<img id=\"arrow_BedroomC\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_meetingroom\"\n    style=\"top: 253px; left: 615px;\" class=\"mydot\"></div>\n<img id=\"arrow_meetingroom\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_BedroomB\"\n    style=\"top: 197px; left: 767px;\" class=\"mydot\"></div>\n<img id=\"arrow_BedroomB\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_entryA\"\n    style=\"top: 163px; left: 71px;\" class=\"mydot\"></div>\n<img id=\"arrow_entryA\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_entryB\"\n    style=\"top: 345px; left: 720px;\" class=\"mydot\"></div>\n<img id=\"arrow_entryB\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_aisleA\"\n    style=\"top: 156px; left: 263px;\" class=\"mydot\"></div>\n<img id=\"arrow_aisleA\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_aisleB\" style=\"top: 156px; left: 593px;\" class=\"mydot\"></div>\n<img id=\"arrow_aisleB\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_aisleC\" style=\"top: 325px; left: 484px;\" class=\"mydot\"></div>\n<img id=\"arrow_aisleC\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_intersection\" style=\"top: 156px; left: 479px;\" class=\"mydot\"></div>\n<img id=\"arrow_intersection\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_studyroom\" style=\"top: 235px; left: 335px;\" class=\"mydot\"></div>\n<img id=\"arrow_studyroom\" class=\"myArrow\"  src=\"/arrow.png\">\n\n<!-- <div id=\"coords\" style=\"color: black; z-index: 100; pointer-events:none;\"></div>\n<div id=\"pixels\" style=\"color: black; z-index: 100; pointer-events:none;\"></div> -->\n<img id=\"imgcursor\" style=\"position: absolute; top: 0px; left: 0px; height: 40px; width: 40px;display:none\" src=\"/Map-Marker-PNG-HD.png\">\n<div id=\"entryBLock\" style=\"position: absolute; top: 150px; left: 10px; height: 40px; width: 40px;border-radius: 3px;background-color:rgba(176,224,230,.8);display:flex;justify-content: center;\">\n    <img src=\"/emergency-exit-icon-left.png\" style=\"height: 40px; width: 40px;\">\n</div>\n<div id=\"entryBLock\" style=\"position: absolute; top: 340px; left: 811px; height: 45px; width: 40px;border-radius: 3px;background-color:rgba(176,224,230,.8);display:flex;justify-content: center;\">\n    <img src=\"/emergency-exit-icon-right.png\" style=\"height: 40px; width: 40px;\">\n</div>\n<div style=\"height: 3em;display: flex;flex-direction: row;align-items: center;\">\n    <div id=\"resetButt\" class=\"mybutt\" style=\"min-width: 5em; max-width: fit-content;height:1.5em; z-index: 110; padding: 0 10px ;margin:10px\">Reset</div>\n    <div id=\"redirectButt\" class=\"mybutt\" style=\"min-width: 5em; max-width: fit-content;height:1.5em; z-index: 110;opacity:0; padding: 0 10px ;margin:10px\"></div>\n</div>\n<script>\nvar areas = {\n    \"bedroom\":\"bedroom\",\n    \"kitchen\":\"kitchen\",\n    \"BedroomC\":\"Bedroom C\",\n    \"BedroomB\":\"Bedroom B\",\n    \"entryA\":\"entry A\",\n    \"entryB\":\"entry B\",\n    \"aisleA\":\"aisle A\",\n    \"aisleB\":\"aisle B\",\n    \"aisleC\":\"aisle C\",\n    \"intersection\":\"intersection\",\n    \"studyroom\":\"study room\",\n    \"meetingroom\":\"meeting room\"\n}\nvar boundary = {\n    \"bedroom\": {\n        block1: {\n            x: [0.1212, 0.2809],\n            y: [0.5010, 0.9189]\n        }\n    },\n    \"kitchen\": {\n        block1: {\n            x: [0.6399, 0.8205],\n            y: [0.00674, 0.2471]\n        },\n        block2: {\n            x: [0.6002, 0.6562],\n            y: [0.1460, 0.2471]\n        }\n    },\n    \"Bedroom C\": {\n        block1: {\n            x: [0.3636, 0.4953],\n            y: [0.6493, 0.9144]\n        }\n    },\n    \"Bedroom B\": {\n        block1: {\n            x: [0.8275, 0.9662],\n            y: [0.2696, 0.7100]\n        }\n    },\n    \"meeting room\": {\n        block1: {\n            x: [0.6061, 0.8228],\n            y: [0.5055, 0.7122]\n        }\n    },\n    \"entry A\": {\n        block1: {\n            x: [0.0315, 0.1200],\n            y: [0.2651, 0.4943]\n        }\n    },\n    \"entry B\": {\n        block1: {\n            x: [0.6651, 0.9680],\n            y: [0.7190, 0.9212]\n        }\n    },\n    \"aisle A\":{\n        block1: {\n            x: [0.1224, 0.5023],\n            y: [0.2651, 0.4988]\n        }\n    },\n    \"intersection\":{\n        block1: {\n            x: [0.5023, 0.6100],\n            y: [0.2651, 0.4988]\n        }\n    },\n    \"aisle B\":{\n        block1: {\n            x: [0.6100, 0.8223],\n            y: [0.2651, 0.4988]\n        }\n    },\n    \"aisle C\":{\n        block1: {\n            x: [0.5023, 0.6100],\n            y: [0.4988, 0.7155]\n        },\n        block2: {\n            x: [0.5023, 0.6632],\n            y: [0.7155, 0.9198]\n        }\n    },\n    \"study room\":{\n        block1: {\n            x: [0.2844, 0.5023],\n            y: [0.5078, 0.6516]\n        }\n    },\n\n}\nfunction findPlace(payload){\n    const target = payload;\n    const point = {\n        x: parseFloat(target.coordX),\n        y: parseFloat(target.coordY),\n    }\n    for (const [key, place] of Object.entries(boundary)){\n        for (const [_, block] of Object.entries(place)){\n            let inX = point.x > block.x[0] && point.x < block.x[1];\n            let inY=point.y> block.y[0] && point.y < block.y[1];\n            if(inX&&inY){ \n                return key;\n            }\n        }\n    }\n    return \"None\" ; \n}\n(function($scope){\n    $('#redirectButt').on('click',function(e){\n        $scope.send({\"payload\":  e.target.innerHTML})\n    })\n    $('#resetButt').on('click',function(e){\n        $scope.send({\"payload\":  \"reset\",\"topic\":\"reset\"})\n    })\n    for(const [key, place] of Object.entries(areas)){\n        $(`#dot_${key}`).on('dblclick',function(e){\n            $scope.send({\"payload\": place})\n        });\n        $(`#arrow_${key}`).on('dblclick',function(e){\n            $scope.send({\"payload\": place})\n        });\n        var parent_top = $(`#dot_${key}`).css(\"top\")\n        var parent_left = $(`#dot_${key}`).css(\"left\")\n        parent_top = parseInt(parent_top.replace(\"px\", \"\")) // convert \"100px\" to 100\n        parent_left = parseInt(parent_left.replace(\"px\", \"\"))\n        // console.log(`{\"place\": \"${key}\",\"top\":${parent_top},\"left\":${parent_left},\"status\":\"Normal\"},`)\n        // console.log(\"parent_left: \",typeof  parent_left)\n        $(`#arrow_${key}`).css(\"top\", parent_top-7);\n        $(`#arrow_${key}`).css(\"left\", parent_left-7);\n    }\n\n})(scope);\n\n/* pin location (touch screen)*/\nfunction pinLocationMobile(e){\n    e.preventDefault();\n    const map = document.getElementById(\"imgmap\");\n    let rect = map.getBoundingClientRect();\n    let xCoordinate = ((e.touches[0].clientX - rect.left)/ (rect.right- rect.left)).toFixed(4);\n    let yCoordinate = ((e.touches[0].clientY - rect.top)/(rect.bottom - rect.top)).toFixed(4);\n    if (xCoordinate < 1 && xCoordinate > 0 && yCoordinate < 1 && yCoordinate > 0){\n        $(\"#coords\").text( \"X: \" + xCoordinate + \", Y: \" + yCoordinate);\n        $(\"#imgcursor\").css( \"left\", (e.touches[0].clientX - rect.left) - 20 ); // offset to half of the cursor's width\n        $(\"#imgcursor\").css( \"top\", (e.touches[0].clientY - rect.top) - 20 );  // offset to half of the cursor's height\n        \n        payload = findPlace({\"coordX\": xCoordinate, \"coordY\": yCoordinate})\n        \n        const place=payload;\n        const butt = document.getElementById(\"redirectButt\");\n        if(place!==\"None\"){\n            butt.innerHTML = place;\n            butt.style.opacity = 1;\n        }else{\n            butt.style.opacity = 0;\n        }\n        \n    }\n}\n/* pin location*/\nfunction pinLocation(e){\n    e.preventDefault();\n    const map = document.getElementById(\"imgmap\");\n    let rect = map.getBoundingClientRect();\n    let xCoordinate = ((e.clientX - rect.left)/ (rect.right- rect.left)).toFixed(4);\n    let yCoordinate = ((e.clientY - rect.top)/(rect.bottom - rect.top)).toFixed(4);\n    if (xCoordinate < 1 && xCoordinate> 0 && yCoordinate < 1 && yCoordinate> 0 && e.buttons == 1){\n        $(\"#coords\").text( \"X: \" + xCoordinate + \", Y: \" + yCoordinate);\n        $(\"#pixels\").text( \"X: \" + (e.clientX - rect.left) + \", Y: \" + (e.clientY - rect.top));\n        $(\"#imgcursor\").css( \"left\", (e.clientX - rect.left) - 20); // offset to half of the cursor's width\n        $(\"#imgcursor\").css( \"top\", (e.clientY - rect.top) - 20 ); // offset to half of the cursor's height\n\n        //$scope.send({\"payload\":{\"coordX\": xCoordinate, \"coordY\": yCoordinate}});\n        payload = findPlace({\"coordX\": xCoordinate, \"coordY\": yCoordinate})\n\n        const place=payload;\n        const butt = document.getElementById(\"redirectButt\");\n        if(place!==\"None\"){\n            butt.innerHTML = place;\n            butt.style.opacity = 1;\n        }else{\n            butt.style.opacity = 0;\n        }\n    }\n}\n\n(function($scope) {\n    $('#imgmap').on('touchstart touchmove',pinLocationMobile);\n    $('#imgmap').on('mousemove mousedown mouseup',pinLocation);\n\n    for(const [key, place] of Object.entries(areas)){\n        $(`#dot_${key}`).on('touchstart touchmove',pinLocationMobile);\n        $(`#dot_${key}`).on('mousemove click',pinLocation);\n\n        $(`#arrow_${key}`).on('touchstart touchmove',pinLocationMobile);\n        $(`#arrow_${key}`).on('mousemove click',pinLocation);\n    }\n\n    $('#imgcursor').on('touchstart touchmove',pinLocationMobile);\n    $('#imgcursor').on('mousemove mousedown mouseup',pinLocation);\n})(scope);\n\n(function($scope){\n    $scope.$watch('msg', function(){\n        const place = $scope.msg.payload.place;\n        const color = $scope.msg.payload.color;\n        $(`#dot_${place}`).css(\"background-color\",color);\n        if(color==\"red\"){\n            $(`#arrow_${place}`).css(\"opacity\",1);\n        }\n    })\n    $scope.$watch('msg', function(){\n        if ($scope.msg.topic!==\"state\")return;\n        const paths = $scope.msg.payload;\n        // console.log(paths)\n        for(const [key, degree] of Object.entries(paths)){\n            $(`#arrow_${key}`).css(\"transform\", `rotate(${degree}deg)`);\n            if($scope.msg.path === \"NORMAL\"){\n                $(`#arrow_${key}`).css(\"opacity\",0);\n            }else {\n                $(`#arrow_${key}`).css(\"opacity\",1);\n            }\n        }\n    })\n})(scope);\n</script>",
+        "format": "<img id=\"imgmap\" style=\"position: absolute; top: 0px; left: 0px;\" src=\"/floor_img.jpg\" draggable=\"false\">\n\n<div id=\"dot_bedroom\" style=\"top: 263px; left: 169px;\" class=\"mydot\" ></div>\n<img id=\"arrow_bedroom\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_kitchen\" style=\" top: 60px; left: 610px;\" class=\"mydot\"></div>\n<img id=\"arrow_kitchen\" class=\"myArrow\"  src=\"/arrow.png\">\n\n<div id=\"dot_BedroomC\"\n    style=\" top: 344px; left: 365px;\" class=\"mydot\"></div>\n<img id=\"arrow_BedroomC\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_meetingroom\"\n    style=\"top: 253px; left: 615px;\" class=\"mydot\"></div>\n<img id=\"arrow_meetingroom\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_BedroomB\"\n    style=\"top: 197px; left: 767px;\" class=\"mydot\"></div>\n<img id=\"arrow_BedroomB\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_entryA\"\n    style=\"top: 163px; left: 71px;\" class=\"mydot\"></div>\n<img id=\"arrow_entryA\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_entryB\"\n    style=\"top: 345px; left: 720px;\" class=\"mydot\"></div>\n<img id=\"arrow_entryB\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_aisleA\"\n    style=\"top: 156px; left: 263px;\" class=\"mydot\"></div>\n<img id=\"arrow_aisleA\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_aisleB\" style=\"top: 156px; left: 593px;\" class=\"mydot\"></div>\n<img id=\"arrow_aisleB\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_aisleC\" style=\"top: 325px; left: 484px;\" class=\"mydot\"></div>\n<img id=\"arrow_aisleC\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_intersection\" style=\"top: 156px; left: 479px;\" class=\"mydot\"></div>\n<img id=\"arrow_intersection\" class=\"myArrow\"  src=\"/arrow.png\">\n\n\n<div id=\"dot_studyroom\" style=\"top: 235px; left: 335px;\" class=\"mydot\"></div>\n<img id=\"arrow_studyroom\" class=\"myArrow\"  src=\"/arrow.png\">\n\n<!-- <div id=\"coords\" style=\"color: black; z-index: 100; pointer-events:none;\"></div>\n<div id=\"pixels\" style=\"color: black; z-index: 100; pointer-events:none;\"></div> -->\n<img id=\"imgcursor\" style=\"position: absolute; top: 0px; left: 0px; height: 40px; width: 40px;display:none\" src=\"/Map-Marker-PNG-HD.png\">\n<div id=\"entryBLock\" style=\"position: absolute; top: 150px; left: 10px; height: 40px; width: 40px;border-radius: 3px;background-color:rgba(50,205,50,.8);display:flex;justify-content: center;\">\n    <img src=\"/emergency-exit-icon-left.png\" style=\"height: 40px; width: 40px;\">\n</div>\n<div id=\"entryBLock\" style=\"position: absolute; top: 340px; left: 811px; height: 45px; width: 40px;border-radius: 3px;background-color:rgba(50,205,50,.8);display:flex;justify-content: center;\">\n    <img src=\"/emergency-exit-icon-right.png\" style=\"height: 40px; width: 40px;\">\n</div>\n<div style=\"height: 3em;display: flex;flex-direction: row;align-items: center;\">\n    <div id=\"resetButt\" class=\"mybutt\" style=\"min-width: 5em; max-width: fit-content;height:1.5em; z-index: 110; padding: 0 10px ;margin:10px\">Reset</div>\n    <div id=\"redirectButt\" class=\"mybutt\" style=\"min-width: 5em; max-width: fit-content;height:1.5em; z-index: 110;opacity:0; padding: 0 10px ;margin:10px\"></div>\n</div>\n<script>\nvar areas = {\n    \"bedroom\":\"bedroom\",\n    \"kitchen\":\"kitchen\",\n    \"BedroomC\":\"Bedroom C\",\n    \"BedroomB\":\"Bedroom B\",\n    \"entryA\":\"entry A\",\n    \"entryB\":\"entry B\",\n    \"aisleA\":\"aisle A\",\n    \"aisleB\":\"aisle B\",\n    \"aisleC\":\"aisle C\",\n    \"intersection\":\"intersection\",\n    \"studyroom\":\"study room\",\n    \"meetingroom\":\"meeting room\"\n}\nvar boundary = {\n    \"bedroom\": {\n        block1: {\n            x: [0.1212, 0.2809],\n            y: [0.5010, 0.9189]\n        }\n    },\n    \"kitchen\": {\n        block1: {\n            x: [0.6399, 0.8205],\n            y: [0.00674, 0.2471]\n        },\n        block2: {\n            x: [0.6002, 0.6562],\n            y: [0.1460, 0.2471]\n        }\n    },\n    \"Bedroom C\": {\n        block1: {\n            x: [0.3636, 0.4953],\n            y: [0.6493, 0.9144]\n        }\n    },\n    \"Bedroom B\": {\n        block1: {\n            x: [0.8275, 0.9662],\n            y: [0.2696, 0.7100]\n        }\n    },\n    \"meeting room\": {\n        block1: {\n            x: [0.6061, 0.8228],\n            y: [0.5055, 0.7122]\n        }\n    },\n    \"entry A\": {\n        block1: {\n            x: [0.0315, 0.1200],\n            y: [0.2651, 0.4943]\n        }\n    },\n    \"entry B\": {\n        block1: {\n            x: [0.6651, 0.9680],\n            y: [0.7190, 0.9212]\n        }\n    },\n    \"aisle A\":{\n        block1: {\n            x: [0.1224, 0.5023],\n            y: [0.2651, 0.4988]\n        }\n    },\n    \"intersection\":{\n        block1: {\n            x: [0.5023, 0.6100],\n            y: [0.2651, 0.4988]\n        }\n    },\n    \"aisle B\":{\n        block1: {\n            x: [0.6100, 0.8223],\n            y: [0.2651, 0.4988]\n        }\n    },\n    \"aisle C\":{\n        block1: {\n            x: [0.5023, 0.6100],\n            y: [0.4988, 0.7155]\n        },\n        block2: {\n            x: [0.5023, 0.6632],\n            y: [0.7155, 0.9198]\n        }\n    },\n    \"study room\":{\n        block1: {\n            x: [0.2844, 0.5023],\n            y: [0.5078, 0.6516]\n        }\n    },\n\n}\nfunction findPlace(payload){\n    const target = payload;\n    const point = {\n        x: parseFloat(target.coordX),\n        y: parseFloat(target.coordY),\n    }\n    for (const [key, place] of Object.entries(boundary)){\n        for (const [_, block] of Object.entries(place)){\n            let inX = point.x > block.x[0] && point.x < block.x[1];\n            let inY=point.y> block.y[0] && point.y < block.y[1];\n            if(inX&&inY){ \n                return key;\n            }\n        }\n    }\n    return \"None\" ; \n}\n(function($scope){\n    $('#redirectButt').on('click',function(e){\n        $scope.send({\"payload\":  e.target.innerHTML})\n    })\n    $('#resetButt').on('click',function(e){\n        $scope.send({\"payload\":  \"reset\",\"topic\":\"reset\"})\n    })\n    for(const [key, place] of Object.entries(areas)){\n        $(`#dot_${key}`).on('dblclick',function(e){\n            $scope.send({\"payload\": place})\n        });\n        $(`#arrow_${key}`).on('dblclick',function(e){\n            $scope.send({\"payload\": place})\n        });\n        var parent_top = $(`#dot_${key}`).css(\"top\")\n        var parent_left = $(`#dot_${key}`).css(\"left\")\n        parent_top = parseInt(parent_top.replace(\"px\", \"\")) // convert \"100px\" to 100\n        parent_left = parseInt(parent_left.replace(\"px\", \"\"))\n        // console.log(`{\"place\": \"${key}\",\"top\":${parent_top},\"left\":${parent_left},\"status\":\"Normal\"},`)\n        // console.log(\"parent_left: \",typeof  parent_left)\n        $(`#arrow_${key}`).css(\"top\", parent_top-7);\n        $(`#arrow_${key}`).css(\"left\", parent_left-7);\n    }\n\n})(scope);\n\n/* pin location (touch screen)*/\nfunction pinLocationMobile(e){\n    e.preventDefault();\n    const map = document.getElementById(\"imgmap\");\n    let rect = map.getBoundingClientRect();\n    let xCoordinate = ((e.touches[0].clientX - rect.left)/ (rect.right- rect.left)).toFixed(4);\n    let yCoordinate = ((e.touches[0].clientY - rect.top)/(rect.bottom - rect.top)).toFixed(4);\n    if (xCoordinate < 1 && xCoordinate > 0 && yCoordinate < 1 && yCoordinate > 0){\n        $(\"#coords\").text( \"X: \" + xCoordinate + \", Y: \" + yCoordinate);\n        $(\"#imgcursor\").css( \"left\", (e.touches[0].clientX - rect.left) - 20 ); // offset to half of the cursor's width\n        $(\"#imgcursor\").css( \"top\", (e.touches[0].clientY - rect.top) - 20 );  // offset to half of the cursor's height\n        \n        payload = findPlace({\"coordX\": xCoordinate, \"coordY\": yCoordinate})\n        \n        const place=payload;\n        const butt = document.getElementById(\"redirectButt\");\n        if(place!==\"None\"){\n            butt.innerHTML = place;\n            butt.style.opacity = 1;\n        }else{\n            butt.style.opacity = 0;\n        }\n        \n    }\n}\n/* pin location*/\nfunction pinLocation(e){\n    e.preventDefault();\n    const map = document.getElementById(\"imgmap\");\n    let rect = map.getBoundingClientRect();\n    let xCoordinate = ((e.clientX - rect.left)/ (rect.right- rect.left)).toFixed(4);\n    let yCoordinate = ((e.clientY - rect.top)/(rect.bottom - rect.top)).toFixed(4);\n    if (xCoordinate < 1 && xCoordinate> 0 && yCoordinate < 1 && yCoordinate> 0 && e.buttons == 1){\n        $(\"#coords\").text( \"X: \" + xCoordinate + \", Y: \" + yCoordinate);\n        $(\"#pixels\").text( \"X: \" + (e.clientX - rect.left) + \", Y: \" + (e.clientY - rect.top));\n        $(\"#imgcursor\").css( \"left\", (e.clientX - rect.left) - 20); // offset to half of the cursor's width\n        $(\"#imgcursor\").css( \"top\", (e.clientY - rect.top) - 20 ); // offset to half of the cursor's height\n\n        //$scope.send({\"payload\":{\"coordX\": xCoordinate, \"coordY\": yCoordinate}});\n        payload = findPlace({\"coordX\": xCoordinate, \"coordY\": yCoordinate})\n\n        const place=payload;\n        const butt = document.getElementById(\"redirectButt\");\n        if(place!==\"None\"){\n            butt.innerHTML = place;\n            butt.style.opacity = 1;\n        }else{\n            butt.style.opacity = 0;\n        }\n    }\n}\n\n(function($scope) {\n    $('#imgmap').on('touchstart touchmove',pinLocationMobile);\n    $('#imgmap').on('mousemove mousedown mouseup',pinLocation);\n\n    for(const [key, place] of Object.entries(areas)){\n        $(`#dot_${key}`).on('touchstart touchmove',pinLocationMobile);\n        $(`#dot_${key}`).on('mousemove click',pinLocation);\n\n        $(`#arrow_${key}`).on('touchstart touchmove',pinLocationMobile);\n        $(`#arrow_${key}`).on('mousemove click',pinLocation);\n    }\n\n    $('#imgcursor').on('touchstart touchmove',pinLocationMobile);\n    $('#imgcursor').on('mousemove mousedown mouseup',pinLocation);\n})(scope);\n\n(function($scope){\n    $scope.$watch('msg', function(){\n        const place = $scope.msg.payload.place;\n        const color = $scope.msg.payload.color;\n        $(`#dot_${place}`).css(\"background-color\",color);\n        if(color==\"red\"){\n            $(`#arrow_${place}`).css(\"opacity\",1);\n        }\n    })\n    $scope.$watch('msg', function(){\n        if ($scope.msg.topic!==\"state\")return;\n        const paths = $scope.msg.payload;\n        // console.log(paths)\n        for(const [key, degree] of Object.entries(paths)){\n            $(`#arrow_${key}`).css(\"transform\", `rotate(${degree}deg)`);\n            if($scope.msg.path === \"NORMAL\"){\n                $(`#arrow_${key}`).css(\"opacity\",0);\n            }else {\n                $(`#arrow_${key}`).css(\"opacity\",1);\n            }\n        }\n    })\n})(scope);\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": false,
@@ -664,10 +664,9 @@
             "9963e0ad05c81d8d",
             "a227e6cd6d4d9f45",
             "b93fadc77952d8d7",
-            "e862d0dadea0ac5b",
-            "5b0f1f3921e571fd"
+            "e862d0dadea0ac5b"
         ],
-        "x": 35,
+        "x": 95,
         "y": 240,
         "wires": [["f26a59b.bdf94a8", "d2a426bc1f8a90ed"]]
     },
@@ -714,23 +713,6 @@
         "x": 670,
         "y": 520,
         "wires": [["3e029767408763f5", "ca8f9f57c17a1c50"]]
-    },
-    {
-        "id": "ec55de35b196061c",
-        "type": "debug",
-        "z": "9357338e01a30d92",
-        "name": "debug 15",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 460,
-        "wires": []
     },
     {
         "id": "c5274b54a9775451",
@@ -871,8 +853,7 @@
             "9963e0ad05c81d8d",
             "a227e6cd6d4d9f45",
             "b93fadc77952d8d7",
-            "e862d0dadea0ac5b",
-            "5b0f1f3921e571fd"
+            "e862d0dadea0ac5b"
         ],
         "x": 55,
         "y": 520,
@@ -1115,8 +1096,7 @@
             "9963e0ad05c81d8d",
             "a227e6cd6d4d9f45",
             "b93fadc77952d8d7",
-            "e862d0dadea0ac5b",
-            "5b0f1f3921e571fd"
+            "e862d0dadea0ac5b"
         ],
         "x": 35,
         "y": 980,
@@ -1184,7 +1164,7 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 710,
+        "x": 670,
         "y": 1100,
         "wires": [["fdd68847a9120a18"]]
     },
@@ -1228,9 +1208,9 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 710,
+        "x": 670,
         "y": 1420,
-        "wires": [["d37de63fef4746e3"]]
+        "wires": [["d37de63fef4746e3", "a4e5fab475f9d932"]]
     },
     {
         "id": "7fe8ab873eaaca77",
@@ -1274,14 +1254,14 @@
         "libs": [],
         "x": 510,
         "y": 1380,
-        "wires": [["7fe8ab873eaaca77", "cf0dfa293e236069", "a4e5fab475f9d932"]]
+        "wires": [["7fe8ab873eaaca77", "cf0dfa293e236069"]]
     },
     {
         "id": "a4e5fab475f9d932",
         "type": "debug",
         "z": "9357338e01a30d92",
         "name": "debug 22",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1289,7 +1269,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 760,
+        "x": 860,
         "y": 1380,
         "wires": []
     },
@@ -1355,7 +1335,7 @@
         "type": "debug",
         "z": "9357338e01a30d92",
         "name": "fire place",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1517,8 +1497,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 530,
-        "y": 1060,
+        "x": 470,
+        "y": 1080,
         "wires": [["94df3554c0b9506b"], ["d7d647e03861e524"], []]
     },
     {
@@ -1542,7 +1522,7 @@
         "type": "debug",
         "z": "9357338e01a30d92",
         "name": "debug 29",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1563,7 +1543,7 @@
         "order": 3,
         "width": 0,
         "height": 0,
-        "format": "<div style=\"display:flex;flex-wrap:wrap;\">\n    <div style=\"display:flex;flex-wrap:wrap\">\n        <div id=\"Butt-bedroom\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-BedroomC\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-BedroomB\" class=\"mybutt fire-butt\"></div>\n    </div>\n    <div style=\"display:flex;flex-wrap:wrap\">\n        <div id=\"Butt-aisleA\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-aisleB\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-aisleC\" class=\"mybutt fire-butt\"></div>\n    </div>\n    <div style=\"display:flex;flex-wrap:wrap\">\n        <div id=\"Butt-kitchen\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-intersection\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-studyroom\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-meetingroom\" class=\"mybutt fire-butt\"></div>\n    </div>\n    <div style=\"display:flex;flex-wrap:wrap\">\n        <div id=\"Butt-entryA\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-entryB\" class=\"mybutt fire-butt\"></div>\n    </div>\n</div>\n\n<script>\n    var areas = {\n        \"Bedroom A\":\"bedroom\",\n        \"Kitchen\":\"kitchen\",\n        \"Bedroom C\":\"BedroomC\",\n        \"Bedroom B\":\"BedroomB\",\n        \"Entry A\":\"entryA\",\n        \"Entry B\":\"entryB\",\n        \"Aisle A\":\"aisleA\",\n        \"Aisle B\":\"aisleB\",\n        \"Aisle C\":\"aisleC\",\n        \"Intersection\":\"intersection\",\n        \"Study Room\":\"studyroom\",\n        \"Meeting Room\":\"meetingroom\"\n    };\n    var tabs = {\n        \"Bedroom A\":\"bedroom\",\n        \"Kitchen\":\"kitchen\",\n        \"Bedroom C\":\"Bedroom C\",\n        \"Bedroom B\":\"Bedroom B\",\n        \"Entry A\":\"entry A\",\n        \"Entry B\":\"entry B\",\n        \"Aisle A\":\"aisle A\",\n        \"Aisle B\":\"aisle B\",\n        \"Aisle C\":\"aisle C\",\n        \"Intersection\":\"intersection\",\n        \"Study Room\":\"study room\",\n        \"Meeting Room\":\"meeting room\"\n    };\n\n    (function($scope) {\n        for(const [key, place] of Object.entries(areas)){\n            id = `#Butt-${place}`\n            $(id).html(key)\n            //console.log(place,key)\n            $(id).on('click',function(e){\n                $scope.send({\"payload\": {\n                    place: place,\n                    message: \"Fire\",\n                    color: \"red\"\n                }})\n            })\n        }\n    })(scope);\n\n</script>",
+        "format": "<div style=\"display:flex;flex-wrap:wrap;\">\n    <div style=\"display:flex;flex-wrap:wrap\">\n        <div id=\"Butt-bedroom\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-BedroomC\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-BedroomB\" class=\"mybutt fire-butt\"></div>\n    </div>\n    <div style=\"display:flex;flex-wrap:wrap\">\n        <div id=\"Butt-aisleA\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-aisleB\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-aisleC\" class=\"mybutt fire-butt\"></div>\n    </div>\n    <div style=\"display:flex;flex-wrap:wrap\">\n        <div id=\"Butt-kitchen\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-intersection\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-studyroom\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-meetingroom\" class=\"mybutt fire-butt\"></div>\n    </div>\n    <div style=\"display:flex;flex-wrap:wrap\">\n        <div id=\"Butt-entryA\" class=\"mybutt fire-butt\"></div>\n        <div id=\"Butt-entryB\" class=\"mybutt fire-butt\"></div>\n    </div>\n</div>\n\n<script>\n    var areas = {\n        \"Bedroom A\":\"bedroom\",\n        \"Kitchen\":\"kitchen\",\n        \"Bedroom C\":\"BedroomC\",\n        \"Bedroom B\":\"BedroomB\",\n        \"Entry A\":\"entryA\",\n        \"Entry B\":\"entryB\",\n        \"Aisle A\":\"aisleA\",\n        \"Aisle B\":\"aisleB\",\n        \"Aisle C\":\"aisleC\",\n        \"Intersection\":\"intersection\",\n        \"Study Room\":\"studyroom\",\n        \"Meeting Room\":\"meetingroom\"\n    };\n    var tabs = {\n        \"Bedroom A\":\"bedroom\",\n        \"Kitchen\":\"kitchen\",\n        \"Bedroom C\":\"Bedroom C\",\n        \"Bedroom B\":\"Bedroom B\",\n        \"Entry A\":\"entry A\",\n        \"Entry B\":\"entry B\",\n        \"Aisle A\":\"aisle A\",\n        \"Aisle B\":\"aisle B\",\n        \"Aisle C\":\"aisle C\",\n        \"Intersection\":\"intersection\",\n        \"Study Room\":\"study room\",\n        \"Meeting Room\":\"meeting room\"\n    };\n\n    (function($scope) {\n        for(const [key, place] of Object.entries(areas)){\n            id = `#Butt-${place}`\n            $(id).html(key)\n            //console.log(place,key)\n            $(id).on('click',function(e){\n                $scope.send({\"payload\": {\"smoke\":0,\"CO\":15,\"temperture\":45},\"topic\":place,\"method\":\"manual\"})\n            })\n        }\n    })(scope);\n\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -1598,9 +1578,22 @@
         "z": "9357338e01a30d92",
         "name": "fire butt",
         "mode": "link",
-        "links": ["478292a4ebaca8d2", "c97ad871543274fa", "cc06b86ab1291ddb"],
+        "links": [
+            "465a6f689a1ff39a",
+            "7978b3d7d00b4ce2",
+            "947a5303bb386d87",
+            "b4786526a7117cd4",
+            "06fc8673cb5e3cc7",
+            "85e44ef264e3fadf",
+            "9dcc8c01b62e3441",
+            "c43a30ed92a55ebe",
+            "a69d90aa26388d19",
+            "0b72ead2270cfc66",
+            "2ecadb11e79aa9f4",
+            "25e9eabc70728dc8"
+        ],
         "x": 645,
-        "y": 120,
+        "y": 160,
         "wires": []
     },
     {
@@ -2521,8 +2514,8 @@
         "z": "e8560f358cae048b",
         "name": "all reset",
         "links": ["1765ee585273167c"],
-        "x": 135,
-        "y": 780,
+        "x": 95,
+        "y": 700,
         "wires": [["814faab247c65d5c"]]
     },
     {
@@ -2713,7 +2706,7 @@
         "order": 3,
         "width": 1,
         "height": 1,
-        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            if(battery){\n                $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n                $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            }\n        });\n    })(scope);\n</script>",
+        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            \n            $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n            $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            \n        });\n    })(scope);\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -2977,6 +2970,37 @@
         "links": ["f839988899dbf851"],
         "x": 885,
         "y": 240,
+        "wires": [["6eae080fe2ef7b04"]]
+    },
+    {
+        "id": "b4786526a7117cd4",
+        "type": "link in",
+        "z": "e8560f358cae048b",
+        "name": "link in 11",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 485,
+        "y": 60,
+        "wires": [["c9d708d424a907e2"]]
+    },
+    {
+        "id": "c9d708d424a907e2",
+        "type": "switch",
+        "z": "e8560f358cae048b",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "bedroom",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 60,
         "wires": [["6eae080fe2ef7b04"]]
     },
     {
@@ -3909,7 +3933,7 @@
         "order": 3,
         "width": 1,
         "height": 1,
-        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            if(battery){\n                $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n                $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            }\n        });\n    })(scope);\n</script>",
+        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            \n            $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n            $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            \n        });\n    })(scope);\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -3943,6 +3967,37 @@
         "x": 740,
         "y": 200,
         "wires": [["b9d9c26a4f68fa1f"]]
+    },
+    {
+        "id": "947a5303bb386d87",
+        "type": "link in",
+        "z": "b435fa1f0cb3b040",
+        "name": "link in 12",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 375,
+        "y": 340,
+        "wires": [["5816ebae11b49c58"]]
+    },
+    {
+        "id": "5816ebae11b49c58",
+        "type": "switch",
+        "z": "b435fa1f0cb3b040",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BedroomB",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 460,
+        "y": 340,
+        "wires": [["05dd899a97fe1d04"]]
     },
     {
         "id": "8dbbb7f92673413d",
@@ -4874,7 +4929,7 @@
         "order": 3,
         "width": 1,
         "height": 1,
-        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            if(battery){\n                $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n                $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            }\n        });\n    })(scope);\n</script>",
+        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            \n            $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n            $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            \n        });\n    })(scope);\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -4893,6 +4948,37 @@
         "x": 265,
         "y": 1060,
         "wires": [["216dcd8b7054618c"]]
+    },
+    {
+        "id": "465a6f689a1ff39a",
+        "type": "link in",
+        "z": "92d2ee6e5b09e9e8",
+        "name": "link in 13",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 515,
+        "y": 40,
+        "wires": [["def57632071c409a"]]
+    },
+    {
+        "id": "def57632071c409a",
+        "type": "switch",
+        "z": "92d2ee6e5b09e9e8",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "kitchen",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 40,
+        "wires": [["7ae1fc736bc32c28"]]
     },
     {
         "id": "3234f3ae83c3cacf",
@@ -5643,7 +5729,7 @@
         "order": 3,
         "width": 1,
         "height": 1,
-        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            if(battery){\n                $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n                $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            }\n        });\n    })(scope);\n</script>",
+        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            \n            $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n            $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            \n        });\n    })(scope);\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -5863,6 +5949,37 @@
         "x": 502.33331298828125,
         "y": 707.3333129882812,
         "wires": []
+    },
+    {
+        "id": "7978b3d7d00b4ce2",
+        "type": "link in",
+        "z": "5d81d50e014fd538",
+        "name": "link in 14",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 515,
+        "y": 60,
+        "wires": [["8947b55775ac4cfe"]]
+    },
+    {
+        "id": "8947b55775ac4cfe",
+        "type": "switch",
+        "z": "5d81d50e014fd538",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "meetingroom",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 60,
+        "wires": [["8bb1f3c98c9cf7b5"]]
     },
     {
         "id": "7ad5bc104875357a",
@@ -6901,6 +7018,37 @@
         "wires": []
     },
     {
+        "id": "a69d90aa26388d19",
+        "type": "link in",
+        "z": "af0d5e987f6889af",
+        "name": "link in 19",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 435,
+        "y": 320,
+        "wires": [["630e34d826856228"]]
+    },
+    {
+        "id": "630e34d826856228",
+        "type": "switch",
+        "z": "af0d5e987f6889af",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "BedroomC",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 320,
+        "wires": [["bba7b86cf77148da"]]
+    },
+    {
         "id": "99803077aa07498e",
         "type": "random",
         "z": "c4f86fdc5e8c2f1f",
@@ -7831,7 +7979,7 @@
         "order": 3,
         "width": 1,
         "height": 1,
-        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            if(battery){\n                $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n                $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            }\n        });\n    })(scope);\n</script>",
+        "format": "<div style=\"display: flex; justify-content:center;align-items:center;height: auto; width: auto\">\n    <img id=\"battery\" style=\"height: auto; width: auto;display: none\" src=\"/half-battery.png\">\n    <img id=\"charging\" style=\"height: auto; width: auto;display: block\" src=\"/low-battery.png\">\n</div>\n\n<script>\n    (function($scope) {\n        $scope.$watch('msg', function() {\n            if (!$scope.msg) return;\n            const battery=$scope.msg.payload?.battery;\n            // console.log(battery);\n            \n            $(\"#battery\").css(\"display\",battery?\"block\":\"none\");\n            $(\"#charging\").css(\"display\",battery?\"none\":\"block\");\n            \n        });\n    })(scope);\n</script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -7935,6 +8083,37 @@
         "x": 530,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "06fc8673cb5e3cc7",
+        "type": "link in",
+        "z": "c4f86fdc5e8c2f1f",
+        "name": "link in 15",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 425,
+        "y": 320,
+        "wires": [["78b0ecc65baedb45"]]
+    },
+    {
+        "id": "78b0ecc65baedb45",
+        "type": "switch",
+        "z": "c4f86fdc5e8c2f1f",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "entryA",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 320,
+        "wires": [["636ed230f10922a2"]]
     },
     {
         "id": "5372e888d81e06e9",
@@ -8973,6 +9152,37 @@
         "wires": []
     },
     {
+        "id": "2ecadb11e79aa9f4",
+        "type": "link in",
+        "z": "05895f55507a8cbc",
+        "name": "link in 21",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 435,
+        "y": 320,
+        "wires": [["36dc506b1f7c390e"]]
+    },
+    {
+        "id": "36dc506b1f7c390e",
+        "type": "switch",
+        "z": "05895f55507a8cbc",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "entryB",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 320,
+        "wires": [["1c1f8c81f6fbf610"]]
+    },
+    {
         "id": "1589a2183dfddd9f",
         "type": "random",
         "z": "f141c113f55a94bd",
@@ -10007,6 +10217,37 @@
         "x": 530,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "85e44ef264e3fadf",
+        "type": "link in",
+        "z": "f141c113f55a94bd",
+        "name": "link in 16",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 435,
+        "y": 320,
+        "wires": [["e2c1941974a07d43"]]
+    },
+    {
+        "id": "e2c1941974a07d43",
+        "type": "switch",
+        "z": "f141c113f55a94bd",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "aisleA",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 520,
+        "y": 320,
+        "wires": [["75578b7fa1eda59e"]]
     },
     {
         "id": "0d76b272bef5156b",
@@ -11045,6 +11286,37 @@
         "wires": []
     },
     {
+        "id": "9dcc8c01b62e3441",
+        "type": "link in",
+        "z": "901e2cd0c21d04eb",
+        "name": "link in 17",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 455,
+        "y": 320,
+        "wires": [["f1adaab0024bda97"]]
+    },
+    {
+        "id": "f1adaab0024bda97",
+        "type": "switch",
+        "z": "901e2cd0c21d04eb",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "aisleB",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 320,
+        "wires": [["e6f834ad3a6b7dd2"]]
+    },
+    {
         "id": "c3f19a4e5860b663",
         "type": "random",
         "z": "d1a1753721bf8ad1",
@@ -12079,6 +12351,37 @@
         "x": 530,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "c43a30ed92a55ebe",
+        "type": "link in",
+        "z": "d1a1753721bf8ad1",
+        "name": "link in 18",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 455,
+        "y": 320,
+        "wires": [["62a4c49220da8186"]]
+    },
+    {
+        "id": "62a4c49220da8186",
+        "type": "switch",
+        "z": "d1a1753721bf8ad1",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "aisleC",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 320,
+        "wires": [["09b31f5772d2fa57"]]
     },
     {
         "id": "33ed107e171e9a3e",
@@ -13117,6 +13420,37 @@
         "wires": []
     },
     {
+        "id": "0b72ead2270cfc66",
+        "type": "link in",
+        "z": "57c7b1d92e451835",
+        "name": "link in 20",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 545,
+        "y": 320,
+        "wires": [["c1aad87b58b035ea"]]
+    },
+    {
+        "id": "c1aad87b58b035ea",
+        "type": "switch",
+        "z": "57c7b1d92e451835",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "intersection",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 630,
+        "y": 320,
+        "wires": [["5c95aa95ad46e1ea"]]
+    },
+    {
         "id": "58bece7ac26785b6",
         "type": "random",
         "z": "c2efc8683c66d9a1",
@@ -14151,5 +14485,36 @@
         "x": 530,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "25e9eabc70728dc8",
+        "type": "link in",
+        "z": "c2efc8683c66d9a1",
+        "name": "link in 22",
+        "links": ["5b0f1f3921e571fd"],
+        "x": 455,
+        "y": 320,
+        "wires": [["57665b1a6fac8127"]]
+    },
+    {
+        "id": "57665b1a6fac8127",
+        "type": "switch",
+        "z": "c2efc8683c66d9a1",
+        "name": "",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "studyroom",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 320,
+        "wires": [["add2a09fa211e4ae"]]
     }
 ]
