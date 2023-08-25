@@ -56,7 +56,7 @@ statusMachine = {
             "reset": "normal"
         },
         "fire": {
-            "green": "fire",
+            "green": "normal",
             "orange": "fire",
             "red": "fire",
             "battery": "fire",
@@ -102,7 +102,7 @@ def transition(stateMachine, action):
         next = stateMachine["transition"][current_status][action]
         stateMachine["status"]["state"] = next
         stateMachine["status"]["time"] = time.time()
-        print(f"switch to state: {next}")
+        print(f"switch to state: {next} by {action}")
     except Exception:
         print(f"FAIL to switch state, {current_status}:{action} not defined!")
         pass
@@ -119,7 +119,7 @@ smoke_detected = False
 power_detected = True
 DURATION = 1
 pixels = neopixel.NeoPixel(
-    pixel_pin, num_pixels, brightness=0.1, auto_write=False, pixel_order=ORDER
+    pixel_pin, num_pixels, brightness=0.5, auto_write=False, pixel_order=ORDER
 )
 
 
@@ -131,6 +131,9 @@ def led_control(num):
     led_length = 2
     for i in range(30):
         pixels[i] = (COLOR["none"])
+    if num < 0:
+        pixels.show()
+        return
     for i in range(led_length):
         pixels[(pos+i) % 30] = COLOR["green"]
         pixels[(pos-i) % 30] = COLOR["green"]
@@ -169,6 +172,7 @@ def on_message(client, userdata, msg):
     if (msg.topic == "path"):
         data = json.loads(msg.payload)
         path_pos = float(data[PLACE])
+        # print(data)
         transition(pathMachine, data["trigger"])
         pathMachine["status"]["path_pos"] = path_pos
     elif (msg.topic == f"/{PLACE}/status"):
@@ -211,9 +215,15 @@ def smoke(channel):
 
 
 def power(channel):
-    global power_detected
+    # true : battery
+    global power_detected, statusMachine
+    # GPIO input high => battery
+    time.sleep(0.1)
     power_detected = GPIO.input(channel)
-
+    action = "power"
+    if power_detected:
+        action = "battery"
+    transition(statusMachine, action)
 
 def setLED():
     global statusMachine, pathMachine
@@ -225,12 +235,18 @@ def setLED():
 
     nowTime = time.time()
     if nowTime - statusTime < 2:
-        led_situation(statusMachine["status"]["color"])
+        print(statusMachine["status"]["color"])
+        led_situation(stateColor[statusMachine["status"]["state"]])
     if nowTime - usePathTime > 1:
         if pathState == "show":
-            led_control(statusMachine["status"]["path_pos"])
+            led_control(pathMachine["status"]["path_pos"])
             if statusState == "normal":
                 led_situation("green")
+        if pathState == "hide":
+            led_control(-1)
+            print(statusState)
+            if statusState == "normal":
+                led_situation("none")
     pixels.show()
 
 def LED_daemon():
