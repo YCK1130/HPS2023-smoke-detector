@@ -10,6 +10,7 @@ import RPi.GPIO as GPIO
 import neopixel
 import uuid
 import threading
+import random
 
 
 # LED stripe configuration
@@ -262,12 +263,6 @@ print("Init Sensor...")
 MQ7_address = 0x4a
 LM75_address = 0x48
 
-# Build SMBus Class for I2c
-bus = smbus2.SMBus(1)
-# Build ADS1115 Class
-i2c = busio.I2C(board.SCL, board.SDA)
-ads = ADS.ADS1115(i2c, address=MQ7_address)
-
 # mqtt setup
 mqtt_client = mqtt.Client()
 mqtt_client.on_connect = on_connect
@@ -275,24 +270,16 @@ mqtt_client.on_message = on_message
 mqtt_client.connect(MQTT_SERVER, MQTT_PORT, MQTT_ALIVE)
 # mqtt_client.loop_forever()
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(13, GPIO.BOTH, callback=smoke, bouncetime=100)
-
-GPIO.setup(18, GPIO.IN)
-GPIO.add_event_detect(18, GPIO.BOTH, callback=power, bouncetime=100)
-
 
 def sensor_data(channel: str, qos: int):
     global smoke_detected, power_detected
-    ADS_out = AnalogIn(ads, ADS.P0)
-    Co_ppm = Cal_CO_ppm(ADS_out)
-    Cel_temperature = Cal_temperature(bus)
+    Co_ppm = 0.7 + random.random()/100
+    Cel_temperature = 25 + random.random()/10
     payload = {
         'ppm': Co_ppm,
         'temp': Cel_temperature,
-        'smoke': int(smoke_detected),
-        'battery': power_detected
+        'smoke': 0,
+        'battery': False
     }
     mqtt_client.publish(channel, json.dumps(payload), qos=qos)
     mqtt_client.loop(2, 10)
@@ -325,5 +312,3 @@ smoke_time = time.time()
 # # Close bus use I2C
 dataThread.join()
 LEDThread.join()
-
-bus.close()
