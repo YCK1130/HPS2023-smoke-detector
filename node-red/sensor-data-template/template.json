@@ -1164,7 +1164,7 @@
         "createDir": false,
         "overwriteFile": "false",
         "encoding": "none",
-        "x": 670,
+        "x": 770,
         "y": 1100,
         "wires": [["fdd68847a9120a18"]]
     },
@@ -1180,7 +1180,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "calculate escaping path",
-        "x": 950,
+        "x": 1030,
         "y": 1060,
         "wires": [["dfccd8cbc8812331"], ["7848dc43fbc3815e"], []]
     },
@@ -1499,7 +1499,7 @@
         "outputs": 3,
         "x": 470,
         "y": 1080,
-        "wires": [["94df3554c0b9506b"], ["d7d647e03861e524"], []]
+        "wires": [["94df3554c0b9506b"], ["81ce24901b16f026"], []]
     },
     {
         "id": "94df3554c0b9506b",
@@ -1507,12 +1507,12 @@
         "z": "9357338e01a30d92",
         "name": "",
         "func": "deadband",
-        "gap": "500",
+        "gap": "1000",
         "start": "",
         "inout": "out",
-        "septopics": false,
+        "septopics": true,
         "property": "time",
-        "topi": "topic",
+        "topi": "payload",
         "x": 720,
         "y": 1060,
         "wires": [["fdd68847a9120a18", "bb4f129bb844e403"]]
@@ -1611,6 +1611,43 @@
         "x": 720,
         "y": 80,
         "wires": []
+    },
+    {
+        "id": "b803d151adcea65e",
+        "type": "trigger",
+        "z": "9357338e01a30d92",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "json",
+        "op2type": "str",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 550,
+        "y": 1540,
+        "wires": [[]]
+    },
+    {
+        "id": "81ce24901b16f026",
+        "type": "rbe",
+        "z": "9357338e01a30d92",
+        "name": "",
+        "func": "deadband",
+        "gap": "30000",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "time",
+        "topi": "payload",
+        "x": 600,
+        "y": 1100,
+        "wires": [["d7d647e03861e524"]]
     },
     {
         "id": "a433e237cd1c112c",
