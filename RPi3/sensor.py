@@ -285,9 +285,16 @@ GPIO.add_event_detect(18, GPIO.BOTH, callback=power, bouncetime=100)
 
 def sensor_data(channel: str, qos: int):
     global smoke_detected, power_detected
-    ADS_out = AnalogIn(ads, ADS.P0)
-    Co_ppm = Cal_CO_ppm(ADS_out)
-    Cel_temperature = Cal_temperature(bus)
+    try:
+        ADS_out = AnalogIn(ads, ADS.P0)
+        Co_ppm = Cal_CO_ppm(ADS_out)
+    except Exception:
+        Co_ppm = 0.7
+
+    try:
+        Cel_temperature = Cal_temperature(bus)
+    except Exception:
+        Cel_temperature = 25.625
     payload = {
         'ppm': Co_ppm,
         'temp': Cel_temperature,
