@@ -1,0 +1,12 @@
+[Unit]
+Description=sensor
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/HPS2023-smoke-detector
+ExecStart=python /home/pi/HPS2023-smoke-detector/RPi3/sensor.py
+Restart=always
+
+[Install]
+After=systemd-networkd.service                                                                             
+WantedBy=multi-user.target
