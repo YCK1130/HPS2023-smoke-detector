@@ -16,7 +16,7 @@ import threading
 pixel_pin = board.D10
 num_pixels = 60
 ORDER = neopixel.GRB
-PLACE = "bedroom"
+PLACE = "intersection"
 COLOR = {
     "red": (255, 0, 0),
     "green": (0, 255, 0),
@@ -125,8 +125,8 @@ pixels = neopixel.NeoPixel(
 
 def led_control(num):
     num = float(num/360)
-    # print(num)
-    pos = int(num*num_pixels)
+    #print(num)
+    pos = int(num*num_pixels/2)
     led_length_run = 6
     led_length = 2
     for i in range(30):
@@ -236,16 +236,17 @@ def setLED():
 
     nowTime = time.time()
     if nowTime - statusTime < 2:
-        print(statusMachine["status"]["color"])
+        #print(statusMachine["status"]["color"])
         led_situation(stateColor[statusMachine["status"]["state"]])
     if nowTime - usePathTime > 1:
         if pathState == "show":
             led_control(pathMachine["status"]["path_pos"])
-            if statusState == "normal" or statusState == "battery":
+            #print(f"direction: { pathMachine['status']['path_pos']}")
+            if statusState in  ["normal","battery"]:
                 led_situation("green")
         if pathState == "hide":
             led_control(-1)
-            print(statusState)
+            #print(statusState)
             if statusState == "normal":
                 led_situation("none")
     pixels.show()

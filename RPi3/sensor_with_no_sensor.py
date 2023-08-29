@@ -127,7 +127,7 @@ pixels = neopixel.NeoPixel(
 def led_control(num):
     num = float(num/360)
     # print(num)
-    pos = int(num*num_pixels)
+    pos = int(num*num_pixels/2)
     led_length_run = 6
     led_length = 2
     for i in range(30):
